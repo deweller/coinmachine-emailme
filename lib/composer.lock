@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ca8d0a9c5c57929ebaf0bb6d7c1f85ed",
+    "hash": "1fe8d3cbb573df2f936ccb5cce53d6b8",
     "packages": [
         {
             "name": "bitwasp/bitcoin-lib",
@@ -1446,12 +1446,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/bitcoin-payer.git",
-                "reference": "720e5c5c91528e1ddac4f9dd37bacf9cd5aab4ce"
+                "reference": "10210f9dba6e25db6115432f02ef9ffe3b3a595e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/bitcoin-payer/zipball/720e5c5c91528e1ddac4f9dd37bacf9cd5aab4ce",
-                "reference": "720e5c5c91528e1ddac4f9dd37bacf9cd5aab4ce",
+                "url": "https://api.github.com/repos/UTipdMe/bitcoin-payer/zipball/10210f9dba6e25db6115432f02ef9ffe3b3a595e",
+                "reference": "10210f9dba6e25db6115432f02ef9ffe3b3a595e",
                 "shasum": ""
             },
             "require": {
@@ -1480,7 +1480,7 @@
                 }
             ],
             "description": "A bitcoin payment library",
-            "time": "2014-08-27 12:33:24"
+            "time": "2014-08-27 12:48:18"
         },
         {
             "name": "utipd/combined-follower",
@@ -1892,7 +1892,6 @@
         "bitwasp/bitcoin-lib": 20,
         "nbobtc/bitcoind-php": 20,
         "utipd/config": 20,
-        "utipd/bitcoin-payer": 20,
         "utipd/counterparty-follower": 20,
         "utipd/form": 20,
         "utipd/mysqlmodel": 20,
@@ -1900,7 +1899,8 @@
         "utipd/simple-daemon": 20,
         "utipd/xcpd-client": 20,
         "utipd/combined-follower": 20,
-        "utipd/counterparty-sender": 20
+        "utipd/counterparty-sender": 20,
+        "utipd/bitcoin-payer": 20
     },
     "prefer-stable": false,
     "platform": [],

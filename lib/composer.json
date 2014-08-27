@@ -13,7 +13,6 @@
         "symfony/twig-bridge": "~2",
         "symfony/yaml": "~2",
         "utipd/config": "dev-master",
-        "utipd/bitcoin-payer": "dev-master",
         "utipd/counterparty-follower": "dev-master",
         "utipd/form": "dev-master",
         "utipd/mysqlmodel": "dev-master",
@@ -21,7 +20,8 @@
         "utipd/simple-daemon": "dev-master",
         "utipd/xcpd-client": "dev-master",
         "utipd/combined-follower": "dev-master",
-        "utipd/counterparty-sender": "dev-master"
+        "utipd/counterparty-sender": "dev-master",
+        "utipd/bitcoin-payer": "dev-master"
     },
 
     "autoload": {
