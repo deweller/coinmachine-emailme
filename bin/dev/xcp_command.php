@@ -31,6 +31,7 @@ if (isset($values['p'])) {
     $params = [];
 }
 echo "\$params:\n".json_encode($params, 192)."\n";
+echo "using connection string: {$app['xcpd.connectionString']}\n";
 
 // unlock wallet if needed
 if (isset($values['w'])) {
