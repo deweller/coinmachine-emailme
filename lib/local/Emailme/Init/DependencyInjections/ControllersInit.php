@@ -31,11 +31,16 @@ class ControllersInit {
         };
 
         $app['controller.admin'] = function($app) {
-            return new \Emailme\Controller\Site\Admin\AdminController($app, $app['directory']('EventLog'), $app['directory']('Account'));
+            return new \Emailme\Controller\Site\Admin\AdminController($app, $app['directory']('EventLog'), $app['directory']('Account'), $app['stats.builder']);
         };
 
         $app['controller.account'] = function($app) {
             return new \Emailme\Controller\Site\Account\AccountController($app, $app['account.manager'], $app['payment.manager'], $app['notification.manager']);
+        };
+
+
+        $app['stats.builder'] = function($app) {
+            return new \Emailme\Controller\Site\Admin\Stats\StatsBuilder($app['directory']('EventLog'), $app['directory']('Account'));
         };
 
     }

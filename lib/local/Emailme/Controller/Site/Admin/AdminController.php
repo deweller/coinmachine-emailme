@@ -2,10 +2,10 @@
 
 namespace Emailme\Controller\Site\Admin;
 
-use Exception;
 use Emailme\Controller\Site\Admin\Util\AdminUtil;
 use Emailme\Controller\Site\Base\BaseSiteController;
 use Emailme\Debug\Debug;
+use Exception;
 use Symfony\Component\HttpFoundation\Request;
 
 /*
@@ -14,11 +14,12 @@ use Symfony\Component\HttpFoundation\Request;
 class AdminController extends BaseSiteController
 {
 
-    public function __construct($app, $log_entry_directory, $account_directory) {
+    public function __construct($app, $log_entry_directory, $account_directory, $stats_builder) {
         parent::__construct($app);
 
         $this->log_entry_directory = $log_entry_directory;
         $this->account_directory = $account_directory;
+        $this->stats_builder = $stats_builder;
     }
 
 
@@ -70,6 +71,11 @@ class AdminController extends BaseSiteController
             'form_data' => $form_data,
             'entries'   => $entries,
         ]);
+    }
+
+    public function statsAction(Request $request, $stat) {
+        $stat_data = $this->stats_builder->buildStat($stat);
+        return $this->app->json($stat_data);
     }
 
     ////////////////////////////////////////////////////////////////////////
