@@ -7,6 +7,7 @@ use Emailme\Controller\Site\Base\BaseSiteController;
 use Emailme\Debug\Debug;
 use Exception;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /*
 * AdminController
@@ -75,6 +76,11 @@ class AdminController extends BaseSiteController
 
     public function statsAction(Request $request, $stat) {
         $stat_data = $this->stats_builder->buildStat($stat);
+        if (strlen($callback = $request->query->get('callback'))) {
+            $response = new JsonResponse($stat_data);
+            $response->setCallback($callback);
+            return $response;
+        }
         return $this->app->json($stat_data);
     }
 

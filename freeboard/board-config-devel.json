@@ -1,0 +1,105 @@
+{
+    "allow_edit": true,
+    "datasources": [
+        {
+            "name": "Accounts",
+            "settings": {
+                "method": "GET",
+                "refresh": 5,
+                "url": "http://emailme.dev:8033/flip2369258/stats/accounts",
+                "use_thingproxy": false
+            },
+            "type": "JSON"
+        },
+        {
+            "name": "Revenue",
+            "settings": {
+                "method": "GET",
+                "refresh": 5,
+                "url": "http://emailme.dev:8033/flip2369258/stats/revenue",
+                "use_thingproxy": false
+            },
+            "type": "JSON"
+        }
+    ],
+    "panes": [
+        {
+            "col": {
+                "3": 1
+            },
+            "row": {
+                "3": 1
+            },
+            "title": "Users",
+            "widgets": [
+                {
+                    "settings": {
+                        "animate": true,
+                        "size": "big",
+                        "sparkline": true,
+                        "title": "Paid",
+                        "units": "users",
+                        "value": "datasources[\"Accounts\"].paid"
+                    },
+                    "type": "text_widget"
+                },
+                {
+                    "settings": {
+                        "animate": true,
+                        "size": "regular",
+                        "sparkline": true,
+                        "title": "Confirmed",
+                        "units": "users",
+                        "value": "datasources[\"Accounts\"].freeConfirmed"
+                    },
+                    "type": "text_widget"
+                },
+                {
+                    "settings": {
+                        "animate": true,
+                        "size": "regular",
+                        "title": "Unconfirmed",
+                        "units": "users",
+                        "value": "datasources[\"Accounts\"].freeUnconfirmed"
+                    },
+                    "type": "text_widget"
+                }
+            ],
+            "width": 1
+        },
+        {
+            "col": {
+                "3": 2
+            },
+            "row": {
+                "3": 1
+            },
+            "title": "Revenue",
+            "widgets": [
+                {
+                    "settings": {
+                        "animate": true,
+                        "size": "big",
+                        "sparkline": true,
+                        "units": "LTBCOIN",
+                        "value": "datasources[\"Revenue\"].LTBCOIN"
+                    },
+                    "type": "text_widget"
+                },
+                {
+                    "settings": {
+                        "animate": true,
+                        "size": "big",
+                        "sparkline": true,
+                        "title": "",
+                        "units": "BTC",
+                        "value": "datasources[\"Revenue\"].BTC"
+                    },
+                    "type": "text_widget"
+                }
+            ],
+            "width": 1
+        }
+    ],
+    "plugins": []
+}
