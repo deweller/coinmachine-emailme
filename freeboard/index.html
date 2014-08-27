@@ -28,7 +28,7 @@
                     $(function()
                     { //DOM Ready
                         $.getJSON('./board-config.json', function(data) {
-                            data.allow_edit = true;
+                            data.allow_edit = false;
                             freeboard.initialize(data.allow_edit, function() {
                                 freeboard.loadDashboard(data);
                             });
