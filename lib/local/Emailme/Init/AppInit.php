@@ -22,7 +22,7 @@ use Exception;
 class AppInit
 {
 
-    public static function initApp($app_env=null, $config_location=null) {
+    public static function initApp($app_env=null, $config_version='shared') {
         // init environment
         if ($app_env === null) { $app_env = getenv('APP_ENV') ?: 'prod'; }
 
@@ -33,7 +33,7 @@ class AppInit
         $app['env'] = $app_env;
 
         // various dependency injections
-        ApplicationInit::init($app);
+        ApplicationInit::init($app, $config_version);
         MysqlInit::init($app);
         ControllersInit::init($app);
         XCPDInit::init($app);

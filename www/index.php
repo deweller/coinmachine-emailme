@@ -6,7 +6,7 @@ define('BASE_PATH', realpath(__DIR__.'/..'));
 
 require __DIR__.'/../lib/vendor/autoload.php';
 
-$app = Environment::initEnvironment();
+$app = Environment::initEnvironment(null, 'web');
 
 // route
 $app['router.site']->route();

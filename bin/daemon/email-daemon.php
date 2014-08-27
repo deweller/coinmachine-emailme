@@ -19,7 +19,7 @@ $values = CLIOpts\CLIOpts::run("
 
 $app_env = isset($values['e']) ? $values['e'] : null;
 
-$app = Environment::initEnvironment($app_env);
+$app = Environment::initEnvironment($app_env, 'emaildaemon');
 echo "Environment: ".$app['config']['env']."\n";
 
 

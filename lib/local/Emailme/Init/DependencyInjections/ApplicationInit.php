@@ -13,15 +13,15 @@ use Symfony\Component\HttpFoundation\Response;
 */
 class ApplicationInit {
 
-    public static function init($app) {
-        self::initApplication($app);
+    public static function init($app, $config_version='shared') {
+        self::initApplication($app, $config_version);
     }
 
-    public static function initApplication($app) {
+    public static function initApplication($app, $config_version='shared') {
         // config
-        $app['config'] = $app->share(function($app) {
+        $app['config'] = $app->share(function($app) use ($config_version) {
             $debug = $app['env'] == 'prod' ? false : true;
-            $loader = new \Utipd\Config\ConfigLoader(BASE_PATH.'/etc/app-config', BASE_PATH.'/var/cache/app-config', $debug);
+            $loader = new \Utipd\Config\ConfigLoader(BASE_PATH.'/etc/app-config', BASE_PATH.'/var/cache/app-config', '-'.$config_version, $debug);
             return $loader->loadYamlFile($app['env'].'.yml');
         });
 

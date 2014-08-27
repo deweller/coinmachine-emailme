@@ -11,9 +11,9 @@ use \Exception;
 class Environment
 {
 
-    public static function initEnvironment($app_env=null) {
+    public static function initEnvironment($app_env=null, $config_version='shared') {
         if ($app_env === null) { $app_env = self::getEnvironment(); }
-        $app = AppInit::initApp($app_env, $config_location=null);
+        $app = AppInit::initApp($app_env, $config_version);
 
         return $app;
     }
