@@ -126,7 +126,7 @@ class XCPDInit {
 
     public static function initPayer($app) {
         $app['bitcoin.payer'] = function($app) {
-            return new \Emailme\Bitcoin\BitcoinPayer($app['native.client']);
+            return new \Utipd\BitcoinPayer\BitcoinPayer($app['native.client']);
         };
     }
 
