@@ -66,6 +66,7 @@ class NotificationManager
         return $this->notification_directory->createAndSave([
             'accountId'     => $account['id'],
             'tx_hash'       => $transaction['tx_hash'],
+            'isNative'      => $transaction['isNative'],
             'confirmations' => $number_of_confirmations,
             'sentDate'      => time(),
             'blockId'       => $current_block_id,

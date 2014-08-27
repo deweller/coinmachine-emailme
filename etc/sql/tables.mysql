@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
     `id`            int(11) unsigned NOT NULL AUTO_INCREMENT,
     `accountId`     int(11) unsigned NOT NULL,
     `tx_hash`       varbinary(64) NOT NULL,
+    `isNative`      int(1) NOT NULL DEFAULT '0',
     `confirmations` int(8) unsigned NOT NULL DEFAULT 0,
     `sentDate`      int(11) unsigned NOT NULL DEFAULT 0,
     `document`      LONGTEXT NOT NULL DEFAULT '',
@@ -35,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `notification` (
     KEY `accountId` (`accountId`),
     KEY `accountId_tx_hash` (`accountId`,`tx_hash`),
     KEY `sentDate` (`sentDate`),
-    UNIQUE KEY `tx_hash_confirmations` (`tx_hash`,`confirmations`)
+    UNIQUE KEY `tx_hash_isNative_confirmations` (`tx_hash`,`isNative`,`confirmations`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
 -- CREATE TABLE IF NOT EXISTS `paymentaddressoffset` (

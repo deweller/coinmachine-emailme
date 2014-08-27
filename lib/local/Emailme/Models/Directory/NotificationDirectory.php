@@ -11,6 +11,6 @@ use Exception;
 class NotificationDirectory extends BaseDocumentMysqlDirectory
 {
 
-    protected $column_names = ['accountId','tx_hash','confirmations','sentDate',];
+    protected $column_names = ['accountId','tx_hash','isNative','confirmations','sentDate',];
 
 }
