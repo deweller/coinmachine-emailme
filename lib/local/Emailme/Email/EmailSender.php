@@ -101,7 +101,15 @@ class EmailSender
     ////////////////////////////////////////////////////////////////////////
 
     protected function sendEmailWithMandrillParameters($mandrill_message) {
-        return $this->mandrill->call('messages/send', array('message' => $mandrill_message));
+        try {
+            $response = $this->mandrill->call('messages/send', array('message' => $mandrill_message));
+        } catch (Exception $e) {
+            EventLog::logError('email.send.error', ['message' => $mandrill_message, 'error' => $e]);
+            throw $e;
+            
+        }
+        Debug::trace("\$response=\n".json_encode($response, 192),__FILE__,__LINE__,$this);
+        return $response;
     }
 
     public function extractMessageDataFromText($text) {

@@ -79,14 +79,15 @@ class NotificationManager
     }
 
     public function sendNotification($account, $transaction, $confirmations, $current_block_id) {
-        EventLog::logEvent('email.notification', ['accountId' => $account['id'], 'confirmations' => $confirmations]);
 
-        $this->account_manager->sendEmail('notification/paid-notification', $account, [
+        $response = $this->account_manager->sendEmail('notification/paid-notification', $account, [
             'transaction'        => $transaction,
             'blockId'            => $current_block_id,
             'confirmations'      => $confirmations,
             'accountDetailsLink' => $this->account_manager->generateAccountDetailsLink($account),
         ]);
+
+        EventLog::logEvent('email.notification', ['accountId' => $account['id'], 'confirmations' => $confirmations, 'response' => $response]);
 
         // $email_params = $this->email_sender->composeEmailParametersFromTemplate($email_name, array_merge(['account' => $account], $other_vars));
         // $this->email_sender->sendEmailInBackgroundWithParameters($email_params);

@@ -24,6 +24,7 @@ class BeanstalkJob
             Debug::errorTrace("ERROR: ".$e->getMessage(),__FILE__,__LINE__,$this);
 
             // cleanup
+            EventLog::logError('job.error', $e);
 
             throw $e;
         }
