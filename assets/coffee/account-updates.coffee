@@ -20,7 +20,7 @@ do ($=jQuery) ->
             return
 
         socket.on 'account-update', (data)->
-            console.log "update",data
+            # console.log "update",data
             setTimeout ()->
                 if data.type == 'payment'
                     updatePayment(data)
@@ -48,7 +48,7 @@ do ($=jQuery) ->
     # ####################################################################################################################
 
     updatePayment = (data)->
-        console.log "updatePayment data",data
+        # console.log "updatePayment data",data
 
         # console.log "updatePageVars (3)"
         for fieldName in ['notificationsRemaining',]

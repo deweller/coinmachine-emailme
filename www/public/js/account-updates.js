@@ -11,7 +11,6 @@
       socket = window.io.connect();
       socket.on('status', function(data) {});
       socket.on('account-update', function(data) {
-        console.log("update", data);
         setTimeout(function() {
           if (data.type === 'payment') {
             updatePayment(data);
@@ -32,7 +31,6 @@
     init = function() {};
     updatePayment = function(data) {
       var amount, el, fieldName, type, value, _i, _len, _ref, _ref1, _results;
-      console.log("updatePayment data", data);
       _ref = ['notificationsRemaining'];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         fieldName = _ref[_i];
