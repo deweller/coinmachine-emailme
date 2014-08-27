@@ -27,7 +27,7 @@ do ($=jQuery) ->
             confirmationsNumber = el.data('confirmations-number')
             $.ajax({
                 type: 'POST'
-                url: "/account/confirmationSetting/#{AccountDetails.refId}.json"
+                url: "/emailme/account/confirmationSetting/#{AccountDetails.refId}.json"
                 data: JSON.stringify({confirmationsNumber: confirmationsNumber, confirmationValue: newValue})
                 success: (data)->
                     if not data.success

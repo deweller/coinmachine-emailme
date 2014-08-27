@@ -47,7 +47,8 @@
         $('.received').show();
         $('#AccountDetails').removeClass('is-trial').addClass('is-paid');
         $('*[data-islifetime="no"]').fadeOut('fast', function() {
-          return $('*[data-islifetime="yes"]').fadeIn('fast');
+          $('*[data-islifetime="yes"]').fadeIn('fast');
+          return $('#AccountDetails').addClass('is-paid').removeClass('is-trial');
         });
       }
       if (!data.isLifetime && $('*[data-islifetime="yes"]').is(':visible')) {

@@ -163,6 +163,9 @@ a.confirmation-setting:hover {
   background-color: #006a8b;
   color: #fff;
 }
+#AccountDetails.is-trial a.confirmation-setting {
+  opacity: 0.4;
+}
 .no-notifications {
   color: #9F9F9F;
 }

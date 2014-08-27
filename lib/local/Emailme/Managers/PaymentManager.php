@@ -97,6 +97,7 @@ class PaymentManager
         ];
         if ($paid === true) {
             $update_vars['isLifetime'] = true;
+            $update_vars['confirmationsToSend'] = [0,3];
             if ($confirmed_paid === true) {
                 $update_vars['isLifetimeConfirmed'] = true;
             }

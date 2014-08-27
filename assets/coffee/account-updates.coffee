@@ -63,6 +63,8 @@ do ($=jQuery) ->
             $('#AccountDetails').removeClass('is-trial').addClass('is-paid')
             $('*[data-islifetime="no"]').fadeOut 'fast', ()->
                 $('*[data-islifetime="yes"]').fadeIn('fast')
+                $('#AccountDetails').addClass('is-paid').removeClass('is-trial')
+                
         if not data.isLifetime and $('*[data-islifetime="yes"]').is(':visible')
             $('*[data-islifetime="yes"]').fadeOut 'fast', ()->
                 $('*[data-islifetime="no"]').fadeIn('fast')

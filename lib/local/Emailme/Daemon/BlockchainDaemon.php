@@ -125,6 +125,7 @@ class BlockchainDaemon
 
         if ($any_changes) {
             // and publish
+            $account = $account->reload();
             $this->payment_manager->publishPaymentUpdate($account);
         }
     }
