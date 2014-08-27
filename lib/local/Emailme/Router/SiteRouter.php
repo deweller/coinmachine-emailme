@@ -36,6 +36,11 @@ class SiteRouter
             return $this->app['controller.home']->homeAction($request);
         })->method('GET|POST')->bind('home');
 
+        // home
+        $emailme_site->match('/about', function(Request $request) {
+            return $this->app['controller.plain']->renderPlainTemplate('about/about.twig');
+        })->method('GET')->bind('about');
+
         // created confirmation
         $emailme_site->match('/account/created', function(Request $request) {
             return $this->app['controller.home']->accountCreatedAction($request);

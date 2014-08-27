@@ -1,0 +1,35 @@
+{% extends "base/section.twig" %}
+
+
+{% block sectionBody %}
+
+<div class="row">
+    <div class="medium-12 large-10 columns small-centered">
+
+        <h3>About this Site</h3>
+
+        <p>Emailme is service provided by <a href="http://devonweller.com">Devon Weller</a>.  You can <a href="mailto:support@coinmachine.co">email me</a> for help.  Comments and suggestions are welcome in the forums.</p>
+
+        <p>
+            This project is <a href="https://github.com/deweller/coinmachine-emailme">open source</a>.
+        </p>
+
+
+
+        <h5>Other Projects</h5>
+        <ul>
+            <li><a href="http://auction.letstalkbitcoin.com">Let's Talk Bitcoin Auctioneer</a></li>
+            <li><a href="http://ltbcoin.com">LTBcoin project</a></li>
+        </ul>
+
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block app_js %}
+{{ parent() }}
+<script src="/public/js/select-click.js"></script>
+{% endblock %}

@@ -63,6 +63,12 @@ footer div.contents {
 }
 footer div.contents a {
   color: white;
+  text-decoration: none;
+}
+footer div.contents a i.fa {
+  margin-right: 5px;
+}
+footer div.contents a:hover {
   text-decoration: underline;
 }
 footer div.contents ul {
@@ -163,7 +169,7 @@ a.confirmation-setting:hover {
   background-color: #006a8b;
   color: #fff;
 }
-#AccountDetails.is-trial a.confirmation-setting {
+#AccountDetails.is-trial a.confirmation-setting[data-is-checked="no"] {
   opacity: 0.4;
 }
 .no-notifications {

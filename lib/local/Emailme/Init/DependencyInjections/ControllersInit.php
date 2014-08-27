@@ -21,6 +21,11 @@ class ControllersInit {
             return new \Emailme\Controller\Site\Home\HomeController($app, $app['account.manager']);
         };
 
+        $app['controller.plain'] = function($app) {
+
+            return new \Emailme\Controller\Site\Plain\PlainController($app);
+        };
+
         $app['controller.confirm'] = function($app) {
             return new \Emailme\Controller\Site\Confirm\ConfirmController($app, $app['account.manager']);
         };
