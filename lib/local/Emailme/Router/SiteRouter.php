@@ -6,7 +6,7 @@ use Exception;
 use Emailme\Controller\Exception\WebsiteException;
 use Emailme\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\HttpFoundation\RedirectResponse;
 /*
 * SiteRouter
 */
@@ -20,52 +20,50 @@ class SiteRouter
     }
 
     public function route() {
-        // home
+        // redirect to /emailme
         $this->app->match('/', function(Request $request) {
+            return new RedirectResponse($this->app->url('home'), 302);
+        });
+
+
+
+        // mount site
+        $emailme_site = $this->app['controllers_factory'];
+
+        // home
+        $emailme_site->match('/', function(Request $request) {
             // return $this->app['twig']->render('home/home.twig', ['error' => $error]);
             return $this->app['controller.home']->homeAction($request);
         })->method('GET|POST')->bind('home');
 
         // created confirmation
-        $this->app->match('/account/created', function(Request $request) {
+        $emailme_site->match('/account/created', function(Request $request) {
             return $this->app['controller.home']->accountCreatedAction($request);
         })->method('GET')->bind('account-created');
 
         // email confirmation
-        $this->app->match('/account/confirm/{token}', function(Request $request, $token) {
+        $emailme_site->match('/account/confirm/{token}', function(Request $request, $token) {
             return $this->app['controller.confirm']->confirmAction($request, $token);
         })->method('GET')->bind('account-confirm');
 
         // account details
-        $this->app->match('/account/details/{refId}', function(Request $request, $refId) {
+        $emailme_site->match('/account/details/{refId}', function(Request $request, $refId) {
             return $this->app['controller.account']->accountDetailsAction($request, $refId);
         })->method('GET')->bind('account-details');
 
         // account details
-        $this->app->match('/account/confirmationSetting/{refId}.json', function(Request $request, $refId) {
+        $emailme_site->match('/account/confirmationSetting/{refId}.json', function(Request $request, $refId) {
             return $this->app['controller.account']->accountChangeConfirmationSetting($request, $refId);
         })->method('POST')->bind('account-confirmation-setting');
 
-
         // account link
-        $this->app->match('/account/send-information', function(Request $request) {
+        $emailme_site->match('/account/send-information', function(Request $request) {
             return $this->app['controller.account']->resendAccountLinkAction($request);
         })->method('GET|POST')->bind('send-account-link');
 
-        $this->app->match('/account/send-information/finished', function(Request $request) {
+        $emailme_site->match('/account/send-information/finished', function(Request $request) {
             return $this->app['controller.account']->resendAccountLinkActionSuccess($request);
         })->method('GET')->bind('send-account-link-success');
-
-
-        // $this->app->match('/create/auction/{auctionRefId}', function(Request $request, $auctionRefId) {
-        //     return $this->app['controller.auction.admin']->confirmAuctionAction($request, $auctionRefId);
-        // })->method('GET|POST')->bind('create-auction-confirm');
-
-
-        // $this->app->match('/auction/{slug}', function(Request $request, $slug) {
-        //     return $this->app['controller.auction.public']->viewAuctionAction($request, $slug);
-        // })->method('GET|POST')->bind('public-auction');
-
 
 
         // default error handler
@@ -80,6 +78,8 @@ class SiteRouter
 
             return $this->app['twig']->render('error/error.twig', ['error' => $error]);
         });
+
+        $this->app->mount('/emailme', $emailme_site);
 
     }
 
