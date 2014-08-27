@@ -1,0 +1,22 @@
+__extends: shared.yml
+
+env                 : dev
+app.debug           : true
+log.debug           : true
+
+# insecure - just for testing
+bitcoin.masterKey   : "youmustchangethis"
+
+# just for testing
+bitcoin.passphrase  : "foolo23958"
+
+
+
+# development settings for local site
+pheanstalk.port    : 11301
+
+site:
+  host     : emailme.dev
+  httpPort : 8033
+
+email.test_mode : false

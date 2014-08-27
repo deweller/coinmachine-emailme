@@ -1,0 +1,199 @@
+.spacer1 {
+  height: 14px;
+}
+.spacer2 {
+  height: 28px;
+}
+.spacer3 {
+  height: 42px;
+}
+.spacer4 {
+  height: 56px;
+}
+.spacer5 {
+  height: 70px;
+}
+.spacer6 {
+  height: 84px;
+}
+label .sublabel {
+  margin-left: 0.6rem;
+  font-size: 0.4rem;
+}
+p {
+  font-size: 0.96rem;
+}
+header {
+  background-color: #006a8b;
+  height: 60px;
+  margin-bottom: 24px;
+}
+header h1 {
+  padding: 8px 24px;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: white;
+  float: left;
+}
+header h2 {
+  padding: 8px 24px;
+  margin: 0;
+  margin-top: 0.9rem;
+  font-size: 1.2rem;
+  font-weight: 100;
+  color: white;
+  float: right;
+}
+header a {
+  color: white;
+}
+header a:hover {
+  color: white;
+}
+footer {
+  background-color: #345661;
+  height: 48px;
+}
+footer div.contents {
+  margin: 0;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+footer div.contents a {
+  color: white;
+  text-decoration: underline;
+}
+footer div.contents ul {
+  margin: 0;
+  padding: 12px 24px;
+  font-size: 0.8rem;
+}
+div#wrapper {
+  margin: 0 auto -48px;
+  /* the bottom margin is the negative value of the footer's height */
+  min-height: 100%;
+}
+.error a {
+  text-decoration: underline;
+  color: white;
+}
+.error a:hover {
+  color: #CFEBFF;
+}
+div#AccountDetails div.section {
+  padding-top: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+div#AccountDetails div.section:first-child {
+  border-top: 1px solid #eee;
+}
+div#AccountDetails div.section:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.section {
+  font-weight: 300;
+}
+label {
+  color: #757575;
+}
+.value {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-size: 0.9rem;
+  color: #2C2C2C;
+}
+.status {
+  margin-top: 12px;
+  margin-bottom: 36px;
+  font-size: 1.2rem;
+}
+.status-trial {
+  color: #85144b;
+}
+.status-paid {
+  color: #3d9970;
+}
+.status-panel {
+  margin-top: 56px;
+  color: #2c2c2c;
+  font-size: 0.9rem;
+}
+.address {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+.btc-address {
+  padding: 2px 8px;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.balances {
+  margin-top: 16px;
+}
+.balance {
+  margin-left: 18px;
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: #6D6D6D;
+}
+.value i.no {
+  color: #85144b;
+}
+.value i.yes {
+  color: #3d9970;
+}
+.confirmation-settings {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+a.confirmation-setting {
+  display: block;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 1px;
+  border: 1px dotted rgba(0, 0, 0, 0.05);
+}
+a.confirmation-setting:hover {
+  background-color: #006a8b;
+  color: #fff;
+}
+.no-notifications {
+  color: #9F9F9F;
+}
+.no-notifications i {
+  margin-right: 8px;
+}
+.notification-list div.payment-section {
+  min-width: 230px;
+}
+.notification-list div.notification {
+  padding: 6px 10px;
+  font-size: 0.8rem;
+}
+.notification-list div.notification .date {
+  margin-right: 6px;
+  color: #AAAAAA;
+  font-size: 0.70rem;
+}
+.notification-list div.notification .confirmations {
+  margin-right: 6px;
+  color: #9D9D9D;
+  font-size: 0.7rem;
+}
+.notification-list div.notification:first-child {
+  border-top: 1px solid #eee;
+}
+.notification-list div.notification:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+.filterForm {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #EAEAEA;
+  margin-bottom: 12px;
+}

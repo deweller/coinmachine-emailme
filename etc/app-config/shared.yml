@@ -1,0 +1,102 @@
+
+app.debug               : false
+log.debug               : true
+
+mysqldb.prefix          : emailme
+mysql.host              : "localhost"
+mysql.port              : "3306"
+mysql.username          : "root"
+mysql.password          : ""
+
+xcpd.scheme             : "http"
+xcpd.host               : "localhost"
+xcpd.port               : "4000"
+xcpd.rpcUser            : "rpcuser"
+xcpd.rpcPassword        : "mypassword"
+
+native.scheme           : "http"
+native.host             : "localhost"
+native.port             : "8332"
+native.rpcUser          : "rpcuser"
+native.rpcPassword      : "mypassword"
+
+redis.host              : "localhost"
+redis.port              : "6379"
+
+pheanstalk.host         : "127.0.0.1"
+pheanstalk.port         : 11300
+
+bitcoin.masterKey       : ""
+bitcoin.passphrase      : ""
+
+admin.login             : "cmadmin"
+admin.password          : "cmadmin"
+admin.realm             : "CoinMachine Admin"
+
+xcp.payout:
+  fee_per_kb               : 0.00001
+  multisig_dust_size       : 0.000025
+  allow_unconfirmed_inputs : true
+
+genesisBlockID : 314900
+
+account.defaults:
+  isLifetime             : false
+  notificationsRemaining : 2
+  isConfirmed            : false
+  confirmedDate          : 0
+  confirmationsToSend    : [3]
+
+prices:
+  lifetime:
+    LTBCOIN : 1000
+    BTC     : 0.003
+
+email.defaults:
+  from_name  : CoinMachine Website
+  from_email : support@coinmachine.co
+email.test_mode : false
+
+mandrill.apiKey    : "changeme"
+
+site:
+  host      : coinmachine.co
+  httpPort  : 80
+  httpsPort : 443
+
+################################################################# 
+################################################################# 
+
+allowedEnvironmentOverrides:
+  XCPD_RPC_HOST                 : xcpd.host
+  XCPD_RPC_PORT                 : xcpd.port
+  XCPD_RPC_USER                 : xcpd.rpcUser
+  XCPD_RPC_PASSWORD             : xcpd.rpcPassword
+
+  NATIVE_RPC_HOST               : native.host
+  NATIVE_RPC_PORT               : native.port
+  NATIVE_RPC_USER               : native.rpcUser
+  NATIVE_RPC_PASSWORD           : native.rpcPassword
+
+  MYSQL_USERNAME                : mysql.username
+  MYSQL_PASSWORD                : mysql.password
+  MYSQL_PORT_3306_TCP_PORT      : mysql.port
+  MYSQL_PORT_3306_TCP_ADDR      : mysql.host
+
+  REDIS_PORT_6379_TCP_PORT      : redis.port
+  REDIS_PORT_6379_TCP_ADDR      : redis.host
+
+  BEANSTALK_PORT_11300_TCP_ADDR : pheanstalk.host
+  BEANSTALK_PORT_11300_TCP_PORT : pheanstalk.port
+
+  BITCOIN_MASTER_KEY            : bitcoin.masterKey
+  BITCOIN_WALLET_PASSPHRASE     : bitcoin.passphrase
+
+  APP_DEBUG                     : app.debug
+
+  WWW_ADMIN_PASSWORD            : admin.password
+
+  GENESIS_BLOCK_ID              : genesisBlockID
+
+  MANDRILL_API_KEY              : mandrill.apiKey
+

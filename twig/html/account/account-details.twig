@@ -1,0 +1,188 @@
+{% extends "base/section.twig" %}
+
+
+{% block sectionBody %}
+
+<div class="row">
+    <div class="medium-12 large-10 columns small-centered">
+
+        <h3>Your Account</h3>
+
+        {# errors #}
+        <div class="error-container">
+        </div>
+
+        <div id="AccountDetails" class="{{account.isLifetime?'is-paid':'is-trial'}}">
+
+            <div class="section">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <label>Bitcoin/Counterparty Address</label>
+                        <div class="value">{{account.bitcoinAddress}}</div>
+                    </div>
+                    <div class="medium-6 columns">
+                        <label>Email Address</label>
+                        <div class="value">{{account.email}}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <label>Payment Status</label>
+                        <div class="value">
+                            <span data-islifetime="yes" class="status-paid" style="display: {{account.isLifetime?'block':'none'}};"><i class="fa fa-check"></i> Paid</span>
+                            <span data-islifetime="no" class="status-trial" style="display: {{account.isLifetime?'none':'block'}};"><i class="fa fa-lock"></i> Trial</span>
+                        </div>
+                    </div>
+                    <div class="medium-6 columns">
+                        <label>Email Notifications Remaining</label>
+                        <div class="value"><span data-field="notificationsRemaining">{{account.isLifetime() ? 'unlimited' : account.notificationsRemaining}}</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <label>Notification Preferences</label>
+                <div class="value confirmation-settings">
+                    <div class="row">
+                        <div class="small-6 medium-3 columns">
+                            {% set isChecked = (0 in account.confirmationsToSend) %}
+                            <a class="confirmation-setting" data-confirmations-number="0" data-is-checked="{{isChecked?'yes':'no'}}">
+                                <i style="display: {{isChecked?'none':'inline'}};" class="fa fa-times no"></i>
+                                <i style="display: {{isChecked?'inline':'none'}};" class="fa fa-check yes"></i>
+                                Immediately
+                            </a>
+                        </div>
+
+                        <div class="small-6 medium-3 columns">
+                            {% set isChecked = (1 in account.confirmationsToSend) %}
+                            <a class="confirmation-setting" data-confirmations-number="1" data-is-checked="{{isChecked?'yes':'no'}}">
+                                <i style="display: {{isChecked?'none':'inline'}};" class="fa fa-times no"></i>
+                                <i style="display: {{isChecked?'inline':'none'}};" class="fa fa-check yes"></i>
+                                1 Confirmation
+                            </a>
+                        </div>
+
+                        <div class="small-6 medium-3 columns">
+                            {% set isChecked = (3 in account.confirmationsToSend) %}
+                            <a class="confirmation-setting" data-confirmations-number="3" data-is-checked="{{isChecked?'yes':'no'}}">
+                                <i style="display: {{isChecked?'none':'inline'}};" class="fa fa-times no"></i>
+                                <i style="display: {{isChecked?'inline':'none'}};" class="fa fa-check yes"></i>
+                                3 Confirmations
+                            </a>
+                        </div>
+
+                        <div class="small-6 medium-3 columns">
+                            {% set isChecked = (6 in account.confirmationsToSend) %}
+                            <a class="confirmation-setting" data-confirmations-number="6" data-is-checked="{{isChecked?'yes':'no'}}">
+                                <i style="display: {{isChecked?'none':'inline'}};" class="fa fa-times no"></i>
+                                <i style="display: {{isChecked?'inline':'none'}};" class="fa fa-check yes"></i>
+                                6 Confirmations
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if not account.isLifetime %}
+
+        <div class="spacer3"></div>
+
+        <h3>Payment Status</h3>
+
+        <div data-islifetime="yes" style="display: {{account.isLifetime?'block':'none'}};">
+            <div class="status status-paid">
+                <i class="fa fa-check"></i> Paid
+            </div>
+
+            <div style="display: {{account.isLifetime?'none':'block'}};">
+                <div class="panel radius received status-panel">
+                    <i class="fa fa-check"></i> Payment received.
+                    <div class="balances">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div data-islifetime="no" style="display: {{account.isLifetime?'none':'block'}};">
+            <div class="status status-trial">
+                <i class="fa fa-lock"></i> Trial
+            </div>
+            <div>
+                To upgrade your account, send either 3 mBTC (0.003 BTC) or 1000 <a href="http://ltbcoin.com" target="_blank">LTBCOIN</a> from anywhere to to this unique payment address:
+            </div>
+            <div class="address"><span class="btc-address" data-select-click>{{account.paymentAddress}} </span></div>
+
+            <div class="panel callout radius waiting status-panel">
+                <i class="fa fa-circle-o-notch fa-spin"></i> Waiting for payment to {{account.paymentAddress}}.
+                <div class="balances">
+                    {% for type, amount in account.balance %}
+                    <div class="balance">Received {{amount|to_currency}} {{type}}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+
+        <div class="spacer3"></div>
+
+        <h3>Notifications</h3>
+        {% set hasNotifications = (notifications|length > 0 ? true : false) %}
+
+        <div class="no-notifications" data-has-notifications="no" style="display: {{hasNotifications?'none':'block'}};">
+            <div class="panel radius">
+                <i class="fa fa-frown-o"></i> No Notifications Yet
+            </div>
+        </div>
+
+        <div class="notification-list" data-has-notifications="yes" style="display: {{hasNotifications?'block':'none'}};">
+            {% for notification in notifications %}
+            <div class="notification">
+                <div class="payment-section left">
+                    <span class="date">
+                        <span data-with-timezone data-date-timestamp="{{notification.sentDate}}">{{notification.sentDate|date("n.d.Y g:i A P")}}</span>
+                    </span>
+                    <span class="confirmations">
+                        {{notification.confirmations}} confirmation{{notification.confirmations==1?'':'s'}}
+                    </span>
+                </div>
+                <span class="payment">
+                    <i class="fa fa-arrow-right"></i> Received {{notification.tx.quantity|to_currency}} {{notification.tx.asset}}
+                </span>
+                <span class="tx-link right">
+                    <a href="https://blockchain.info/tx/{{notification.tx.tx_hash}}" target="_blank" data-receipt-field="transactionLink">View Transaction <i class="fa fa-external-link"></i></a>
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block app_js %}
+{{ parent() }}
+<script src="/public/js/select-click.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/public/vendor/numeral/min/numeral.min.js"></script>
+<script src="/public/vendor/momentjs/moment.js"></script>
+<script src="/public/js/account-updates.js"></script>
+<script src="/public/js/account-details.js"></script>
+<script>
+AccountSocket.connect('{{account.refId}}');
+AccountDetails.refId = '{{account.refId}}';
+</script>
+{% endblock %}
+
+{% block foundation_init %}
+<script src="/public/vendor/foundation/js/foundation/foundation.alert.js"></script>
+{{ parent() }}
+{% endblock %}
+

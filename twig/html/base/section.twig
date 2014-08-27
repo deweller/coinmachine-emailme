@@ -1,0 +1,33 @@
+{% extends "base/base.twig" %}
+{% block body %}
+
+<div id="wrapper">
+
+{# header #}
+{% include "includes/header/header.twig" %}
+
+{% block pageTitle %}
+{# <h1>Section</h1> #}
+{% endblock %}
+
+<div class="mainBody">
+{% block sectionBody %}
+{# section body #}
+{% endblock %}
+</div>
+
+<div class="spacer4"></div>
+<div class="spacer4"></div>
+
+<div class="push"></div>
+</div>
+
+
+{# footer #}
+{% include "includes/footer/footer.twig" %}
+
+{% endblock %}
+
+{% block app_js %}
+{{ parent() }}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base/section.twig" %}
+
+
+{% block sectionBody %}
+
+<div class="row">
+    <div class="medium-10 columns">
+
+        <h3>Account Confirmed</h3>
+
+        <p>Thanks for confirming your account.</p>
+
+        <a href="{{ url('account-details', {refId: account.refId}) }}" class="button">Continue to Your Account</a>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block app_js %}
+{{ parent() }}
+{% endblock %}

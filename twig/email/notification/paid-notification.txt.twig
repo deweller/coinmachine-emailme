@@ -1,0 +1,34 @@
+to_email = "{{account.email}}"
+subject = "You've Been Paid"
+headers[Reply-To] = CoinMachine Team <support@coinmachine.co>
+from_name = CoinMachine Website
+from_email = no-reply@coinmachine.co
+
+------------------------------------------------------------------------
+Dear User,
+
+You have received {{transaction.quantity|to_currency}} {{transaction.asset}} paid to your address {{account.bitcoinAddress}}.
+
+
+The transaction ID is {{transaction.tx_hash}}.
+
+
+{% if confirmations == 0 %}
+This transaction is pending and has not yet been confirmed into a block as of block {{blockId}}.
+{% else %}
+This transaction has {{confirmations}} confirmation{{confirmations == 1 ? '' : 's'}} as of block {{blockId}}.
+{% endif %}
+
+
+
+
+To stop receiving these emails or change your preferences, please visit your account settings here:
+
+{{accountDetailsLink}}
+
+
+
+Cheers,
+
+- The CoinMachine
+http://coinmachine.co

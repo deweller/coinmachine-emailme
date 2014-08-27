@@ -1,0 +1,54 @@
+{% extends "base/section.twig" %}
+
+
+{% block sectionBody %}
+
+<div class="row">
+    <div class="medium-10 columns">
+
+        <h3>Your Account Information</h3>
+
+        <p>
+            To update or view your account, you will need the special link we sent you when you created your account.  If you don't have that link, enter your bitcoin address and email address below and we'll send it to you again.
+        </p>
+
+        <form action="{{url('send-account-link')}}" method="POST">
+            <fieldset>
+                <legend>Resend Account Information</legend>
+
+                {# errors #}
+                {% if error|length %}
+                <div data-alert class="alert-box alert">
+                    <div>There were some errors.  Please try again.</div>
+                    <div class="spacer1"></div>
+                    {{ error|raw }}
+                </div>
+                {% endif %}
+                
+                <label for="email">
+                    Email Address
+                    <span class="sublabel">We won't send you spam or share your email with anyone else</span>
+                </label>
+                <input type="email" name="email" id="email" placeholder="me@myemaildomain.com" value="{{submittedData.email}}">
+
+                <label for="bitcoinAddress">
+                    Bitcoin Address
+                </label>
+                <input type="text" name="bitcoinAddress" id="bitcoinAddress" placeholder="12m7y5thKyTzLgN48muDeAoDZQdzUBQ688"  value="{{submittedData.bitcoinAddress}}">
+
+
+                <div class="spacer1"></div>
+
+                <button type="submit">Send Account Information</button>
+
+                <div class="spacer1"></div>
+
+
+            </fieldset>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+

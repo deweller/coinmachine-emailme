@@ -1,0 +1,52 @@
+{
+    "require": {
+        "bitwasp/bitcoin-lib": "dev-master",
+        "deweller/cliopts": "~1",
+        "linusu/bitcoin-address-validator": "~0",
+        "mandrill/mandrill": "~1",
+        "monolog/monolog": "~1",
+        "nbobtc/bitcoind-php": "dev-master",
+        "pda/pheanstalk": "~3",
+        "predis/predis": "~1",
+        "respect/validation": "~0",
+        "silex/silex": "~1",
+        "symfony/twig-bridge": "~2",
+        "symfony/yaml": "~2",
+        "utipd/config": "dev-master",
+        "utipd/counterparty-follower": "dev-master",
+        "utipd/form": "dev-master",
+        "utipd/mysqlmodel": "dev-master",
+        "utipd/native-follower": "dev-master",
+        "utipd/simple-daemon": "dev-master",
+        "utipd/xcpd-client": "dev-master",
+        "utipd/combined-follower": "dev-master",
+        "utipd/counterparty-sender": "dev-master"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "": "local"
+        }
+    },
+
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/LinusU/php-bitcoin-address-validator"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/UTipdMe/Config"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/UTipdMe/simple-daemon"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/UTipdMe/form"
+        }
+    ]
+
+
+}

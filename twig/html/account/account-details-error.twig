@@ -1,0 +1,31 @@
+{% extends "base/section.twig" %}
+
+
+{% block sectionBody %}
+
+<div class="row">
+    <div class="medium-10 columns">
+        <h3>Account Error</h3>
+
+        {# errors #}
+        {% if error|length %}
+        <div data-alert class="alert-box alert">
+            <div>There were some errors.  Please try again.</div>
+            <div class="spacer1"></div>
+            {{ error|raw }}
+        </div>
+        {% endif %}
+        
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
+
+
+{% block app_js %}
+{{ parent() }}
+{% endblock %}
