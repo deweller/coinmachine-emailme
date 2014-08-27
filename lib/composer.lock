@@ -1491,12 +1491,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/Config.git",
-                "reference": "ad8abf2ad64ae67993855569a962d25d69e6180d"
+                "reference": "742a8cf21f0a1faba2423b6f9abad25ef4a1afcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/Config/zipball/ad8abf2ad64ae67993855569a962d25d69e6180d",
-                "reference": "ad8abf2ad64ae67993855569a962d25d69e6180d",
+                "url": "https://api.github.com/repos/UTipdMe/Config/zipball/742a8cf21f0a1faba2423b6f9abad25ef4a1afcd",
+                "reference": "742a8cf21f0a1faba2423b6f9abad25ef4a1afcd",
                 "shasum": ""
             },
             "require": {
@@ -1528,7 +1528,7 @@
                 "source": "https://github.com/UTipdMe/Config/tree/master",
                 "issues": "https://github.com/UTipdMe/Config/issues"
             },
-            "time": "2014-08-07 22:30:24"
+            "time": "2014-08-27 12:08:36"
         },
         {
             "name": "utipd/counterparty-follower",
@@ -1587,12 +1587,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/counterparty-sender.git",
-                "reference": "14ec6eb74bfbdd1e6c56f37afa7246ccb4b4826c"
+                "reference": "1efd1f54c8363870d437e2534c521c7fda2d1c53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/counterparty-sender/zipball/14ec6eb74bfbdd1e6c56f37afa7246ccb4b4826c",
-                "reference": "14ec6eb74bfbdd1e6c56f37afa7246ccb4b4826c",
+                "url": "https://api.github.com/repos/UTipdMe/counterparty-sender/zipball/1efd1f54c8363870d437e2534c521c7fda2d1c53",
+                "reference": "1efd1f54c8363870d437e2534c521c7fda2d1c53",
                 "shasum": ""
             },
             "require": {
@@ -1621,7 +1621,7 @@
                 }
             ],
             "description": "A library",
-            "time": "2014-08-23 12:32:30"
+            "time": "2014-08-27 03:29:47"
         },
         {
             "name": "utipd/form",
