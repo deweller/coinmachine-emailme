@@ -1,7 +1,8 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
     "hash": "3eeaf34c0fa8c16495ec8c7df674fa14",
     "packages": [
@@ -1445,12 +1446,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/combined-follower.git",
-                "reference": "1a55f4d1a44677b296ec9bc86fbfc3002f66dfc7"
+                "reference": "967d391b6f34402f15b9a3dd691625a91b51aa2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/1a55f4d1a44677b296ec9bc86fbfc3002f66dfc7",
-                "reference": "1a55f4d1a44677b296ec9bc86fbfc3002f66dfc7",
+                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/967d391b6f34402f15b9a3dd691625a91b51aa2a",
+                "reference": "967d391b6f34402f15b9a3dd691625a91b51aa2a",
                 "shasum": ""
             },
             "require": {
@@ -1482,7 +1483,7 @@
                 }
             ],
             "description": "A Bitcoin and Counterparty block and transaction follower",
-            "time": "2014-08-21 12:58:05"
+            "time": "2014-08-21 17:59:29"
         },
         {
             "name": "utipd/config",
@@ -1713,12 +1714,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/native-follower.git",
-                "reference": "47a442b8005bfbb2411d87d821497f3a4752bf3e"
+                "reference": "2e923da8822c848a368c6af9f1ed3f705241a55d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/native-follower/zipball/47a442b8005bfbb2411d87d821497f3a4752bf3e",
-                "reference": "47a442b8005bfbb2411d87d821497f3a4752bf3e",
+                "url": "https://api.github.com/repos/UTipdMe/native-follower/zipball/2e923da8822c848a368c6af9f1ed3f705241a55d",
+                "reference": "2e923da8822c848a368c6af9f1ed3f705241a55d",
                 "shasum": ""
             },
             "require": {
@@ -1754,7 +1755,7 @@
                 "orphans",
                 "transaction"
             ],
-            "time": "2014-08-20 11:38:22"
+            "time": "2014-08-23 13:10:49"
         },
         {
             "name": "utipd/simple-daemon",
@@ -1858,6 +1859,7 @@
         "utipd/combined-follower": 20,
         "utipd/counterparty-sender": 20
     },
+    "prefer-stable": false,
     "platform": [],
     "platform-dev": []
 }
