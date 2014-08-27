@@ -13,6 +13,7 @@
         "symfony/twig-bridge": "~2",
         "symfony/yaml": "~2",
         "utipd/config": "dev-master",
+        "utipd/bitcoin-payer": "dev-master",
         "utipd/counterparty-follower": "dev-master",
         "utipd/form": "dev-master",
         "utipd/mysqlmodel": "dev-master",

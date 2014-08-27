@@ -3,4 +3,5 @@ __extends: shared.yml
 env: prod
 app.debug: false
 
-bitcoin.masterKey   : "YOU_WILL_NEED_TO_SET_THIS"
+bitcoin.masterKey      : "YOU_WILL_NEED_TO_SET_THIS"
+platform.incomeAddress : "1LX66kWrw6UwT3CrX6B1NQV7GbWXAjX1kT"

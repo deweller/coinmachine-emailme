@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3eeaf34c0fa8c16495ec8c7df674fa14",
+    "hash": "ca8d0a9c5c57929ebaf0bb6d7c1f85ed",
     "packages": [
         {
             "name": "bitwasp/bitcoin-lib",
@@ -1441,6 +1441,48 @@
             "time": "2014-07-05 12:19:05"
         },
         {
+            "name": "utipd/bitcoin-payer",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UTipdMe/bitcoin-payer.git",
+                "reference": "720e5c5c91528e1ddac4f9dd37bacf9cd5aab4ce"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UTipdMe/bitcoin-payer/zipball/720e5c5c91528e1ddac4f9dd37bacf9cd5aab4ce",
+                "reference": "720e5c5c91528e1ddac4f9dd37bacf9cd5aab4ce",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "4.*",
+                "nbobtc/bitcoind-php": "dev-master",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Utipd\\BitcoinPayer": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Weller",
+                    "email": "dweller@devonweller.com",
+                    "homepage": "http://devonweller.com"
+                }
+            ],
+            "description": "A bitcoin payment library",
+            "time": "2014-08-27 12:33:24"
+        },
+        {
             "name": "utipd/combined-follower",
             "version": "dev-master",
             "source": {
@@ -1850,6 +1892,7 @@
         "bitwasp/bitcoin-lib": 20,
         "nbobtc/bitcoind-php": 20,
         "utipd/config": 20,
+        "utipd/bitcoin-payer": 20,
         "utipd/counterparty-follower": 20,
         "utipd/form": 20,
         "utipd/mysqlmodel": 20,
