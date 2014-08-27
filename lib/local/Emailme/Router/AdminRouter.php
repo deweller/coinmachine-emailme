@@ -43,15 +43,15 @@ class AdminRouter
             }
         };
 
-        $this->app->match('/admin/logs', function(Request $request) use($app) {
+        $this->app->match('/admin/logs', function(Request $request) {
             return $this->app['controller.admin']->logsAction($request);
         })->method('GET|POST')->before($http_auth);
 
-        $this->app->match('/admin/accounts', function(Request $request) use($app) {
+        $this->app->match('/admin/accounts', function(Request $request) {
             return $this->app['controller.admin']->accountsAction($request);
         })->method('GET|POST')->before($http_auth);
 
-        $this->app->match('/flip2369258/stats/{stat}', function(Request $request, $stat) use($app) {
+        $this->app->match('/flip2369258/stats/{stat}', function(Request $request, $stat) {
             return $this->app['controller.admin']->statsAction($request, $stat);
         })->method('GET')->before($http_auth);
 
