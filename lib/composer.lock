@@ -1714,12 +1714,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/MysqlModel.git",
-                "reference": "6285752a54471f787c591b316652fb73ceabfbf6"
+                "reference": "5092e69fa1213c8440c995cfbd32dcc7c5960e5b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/MysqlModel/zipball/6285752a54471f787c591b316652fb73ceabfbf6",
-                "reference": "6285752a54471f787c591b316652fb73ceabfbf6",
+                "url": "https://api.github.com/repos/UTipdMe/MysqlModel/zipball/5092e69fa1213c8440c995cfbd32dcc7c5960e5b",
+                "reference": "5092e69fa1213c8440c995cfbd32dcc7c5960e5b",
                 "shasum": ""
             },
             "require": {
