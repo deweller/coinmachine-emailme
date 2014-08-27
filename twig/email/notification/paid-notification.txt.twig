@@ -1,6 +1,6 @@
 to_email = "{{account.email}}"
 subject = "You've Been Paid"
-headers[Reply-To] = CoinMachine Team <support@coinmachine.co>
+headers[Reply-To] = CoinMachine Support <support@coinmachine.co>
 from_name = CoinMachine Website
 from_email = no-reply@coinmachine.co
 
@@ -26,13 +26,13 @@ To stop receiving these emails or change your preferences, please visit your acc
 {{accountDetailsLink}}
 {% else %}
 {# temporary #}
-{% if account.notificationsRemaining > 0 %}
-You will receive {{account.notificationsRemaining}} notification{{account.notificationsRemaining == 1?'':'s'}} for this account.
-{% else %}
-This was the last free notification sent to this account.
-{% endif %}
+{% if account.notificationsRemaining > 0 %}{#
+#}You will receive {{account.notificationsRemaining}} more notification{{account.notificationsRemaining == 1?'':'s'}} for this account. {#
+#}{% else %}{#
+#}This was the last free notification sent to this account. {#
+#}{% endif %}{#
+#}To upgrade your account and continue receiving notifications, please visit your account settings here:
 
-To upgrade your account and continue receiving notifications to this address, please visit your account settings here.
 {{accountDetailsLink}}
 {% endif %}
 

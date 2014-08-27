@@ -60,7 +60,7 @@ email.test_mode : false
 mandrill.apiKey    : "changeme"
 
 site:
-  host      : coinmachine.co
+  host      : www.coinmachine.co
   httpPort  : 80
   httpsPort : 443
 
