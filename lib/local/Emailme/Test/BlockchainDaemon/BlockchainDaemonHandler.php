@@ -53,7 +53,7 @@ class BlockchainDaemonHandler
 
     public function getCombinedFollower() {
         if (!isset($this->combined_follower)) {
-            $this->combined_follower = new \Utipd\CombinedFollower\Follower($this->getNativeFollower(), $this->getCounterpartyFollower(), $this->app['mysql.combined.client']);
+            $this->combined_follower = new \Utipd\CombinedFollower\Follower($this->getNativeFollower(), $this->getCounterpartyFollower(), $this->app['mysql.combined.connectionManager']);
             $this->combined_follower->setGenesisBlock($this->app['config']['genesisBlockID']);
         }
         return $this->combined_follower;

@@ -1488,12 +1488,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/combined-follower.git",
-                "reference": "aedc8c0aa0a1d62f2a2c08edb07d6e1d64195a0d"
+                "reference": "c348f7a866105f40e26393131be21f701f80ef69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/aedc8c0aa0a1d62f2a2c08edb07d6e1d64195a0d",
-                "reference": "aedc8c0aa0a1d62f2a2c08edb07d6e1d64195a0d",
+                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/c348f7a866105f40e26393131be21f701f80ef69",
+                "reference": "c348f7a866105f40e26393131be21f701f80ef69",
                 "shasum": ""
             },
             "require": {

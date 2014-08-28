@@ -100,14 +100,15 @@ class XCPDInit {
             return new \Utipd\CombinedFollower\FollowerSetup($app['mysql.client'], $app['mysql.combined.databaseName']);
         };
 
-        $app['mysql.combined.client'] = function($app) {
-            $pdo = $app['mysql.client'];
-            $pdo->query("use `".$app['mysql.combined.databaseName']."`");
-            return $pdo;
-        };
+        $app['mysql.combined.connectionManager'] = $app->share(function($app) {
+            $manager = new \Utipd\MysqlModel\ConnectionManager($app['mysql.connection'].';dbname='.$app['mysql.databaseName'], $app['config']['mysql.username'], $app['config']['mysql.password']);
+            $manager->getConnection()->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $manager->getConnection()->query("use `".$app['mysql.combined.databaseName']."`");
+            return $manager;
+        });
 
         $app['combined.follower'] = function($app) {
-            $follower = new \Utipd\CombinedFollower\Follower($app['native.follower'], $app['xcpd.follower'], $app['mysql.combined.client']);
+            $follower = new \Utipd\CombinedFollower\Follower($app['native.follower'], $app['xcpd.follower'], $app['mysql.combined.connectionManager']);
             $follower->setGenesisBlock($app['config']['genesisBlockID']);
             return $follower;
         };
