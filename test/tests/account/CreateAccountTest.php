@@ -17,15 +17,15 @@ class CreateAccountTest extends SiteTestCase
         $app = Environment::initEnvironment('test');
 
         $submission_vars = array_merge(AccountUtil::newAccountVars(), ['email' => '']);
-        RequestUtil::assertResponseWithStatusCode($app, 'POST', '/', $submission_vars, 200, 'Please enter a valid email address.');
+        RequestUtil::assertResponseWithStatusCode($app, 'POST', '/emailme/', $submission_vars, 200, 'Please enter a valid email address.');
 
         $submission_vars = array_merge(AccountUtil::newAccountVars(), ['bitcoinAddress' => 'BADBADADDRESS']);
-        RequestUtil::assertResponseWithStatusCode($app, 'POST', '/', $submission_vars, 200, 'Address must be a valid Bitcoin address');
+        RequestUtil::assertResponseWithStatusCode($app, 'POST', '/emailme/', $submission_vars, 200, 'Address must be a valid Bitcoin address');
 
 
         // all ok
         $submission_vars = array_merge(AccountUtil::newAccountVars(), []);
-        RequestUtil::assertResponseWithStatusCode($app, 'POST', '/', $submission_vars, 303);
+        RequestUtil::assertResponseWithStatusCode($app, 'POST', '/emailme/', $submission_vars, 303);
     } 
 
     public function testNewAccountCreated() {
