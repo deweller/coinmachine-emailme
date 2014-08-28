@@ -1488,12 +1488,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/combined-follower.git",
-                "reference": "c348f7a866105f40e26393131be21f701f80ef69"
+                "reference": "6e2c4c5769be3e3c8038eb8a58a7a36e0c4bf59e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/c348f7a866105f40e26393131be21f701f80ef69",
-                "reference": "c348f7a866105f40e26393131be21f701f80ef69",
+                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/6e2c4c5769be3e3c8038eb8a58a7a36e0c4bf59e",
+                "reference": "6e2c4c5769be3e3c8038eb8a58a7a36e0c4bf59e",
                 "shasum": ""
             },
             "require": {
@@ -1525,7 +1525,7 @@
                 }
             ],
             "description": "A Bitcoin and Counterparty block and transaction follower",
-            "time": "2014-08-28 12:01:55"
+            "time": "2014-08-28 18:51:55"
         },
         {
             "name": "utipd/config",
@@ -1757,12 +1757,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/native-follower.git",
-                "reference": "2e923da8822c848a368c6af9f1ed3f705241a55d"
+                "reference": "a6d21a508c763a48c01f010d5e6789c69a667cd1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/native-follower/zipball/2e923da8822c848a368c6af9f1ed3f705241a55d",
-                "reference": "2e923da8822c848a368c6af9f1ed3f705241a55d",
+                "url": "https://api.github.com/repos/UTipdMe/native-follower/zipball/a6d21a508c763a48c01f010d5e6789c69a667cd1",
+                "reference": "a6d21a508c763a48c01f010d5e6789c69a667cd1",
                 "shasum": ""
             },
             "require": {
@@ -1798,7 +1798,7 @@
                 "orphans",
                 "transaction"
             ],
-            "time": "2014-08-23 13:10:49"
+            "time": "2014-08-28 17:49:20"
         },
         {
             "name": "utipd/simple-daemon",

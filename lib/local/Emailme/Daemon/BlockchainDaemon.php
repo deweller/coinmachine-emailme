@@ -92,15 +92,32 @@ class BlockchainDaemon
 
     protected function processSendToAccount($account, $transaction, $number_of_confirmations, $current_block_id) {
         if ($account->isActive()) {
-            EventLog::logEvent('send.received', ['accountId' => $account['id'], 'asset' => $transaction['asset'], 'tx' => $transaction, 'mempool' => $transaction['isMempool'], 'blockId' => $current_block_id]);
+            if ($this->sendIsFromSelf($account, $transaction)) {
+                EventLog::logEvent('send.ignored', ['accountId' => $account['id'], 'asset' => $transaction['asset'], 'tx' => $transaction, 'mempool' => $transaction['isMempool'], 'blockId' => $current_block_id]);
+            } else {
+                EventLog::logEvent('send.received', ['accountId' => $account['id'], 'asset' => $transaction['asset'], 'tx' => $transaction, 'mempool' => $transaction['isMempool'], 'blockId' => $current_block_id]);
 
-            // notify
-            $this->notification_manager->handleNewSendToAccount($account, $transaction, $number_of_confirmations, $current_block_id);
+                // notify
+                $this->notification_manager->handleNewSendToAccount($account, $transaction, $number_of_confirmations, $current_block_id);
+            }
         } else {
 
             // this account is inactive
             EventLog::logEvent('send.received.inactive', ['accountId' => $account['id'], 'asset' => $transaction['asset'], 'tx' => $transaction, 'mempool' => $transaction['isMempool'], 'blockId' => $current_block_id]);
         }
+    }
+
+    protected function sendIsFromSelf($account, $transaction) {
+        $sources = $transaction['source'];
+        if ($sources AND !is_array($sources)) { $sources = [$sources]; }
+        if ($sources) {
+            foreach($sources as $source) {
+                if ($source == $account['bitcoinAddress']) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     ////////////////////////////////////////////////////////////////////////

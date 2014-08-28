@@ -139,7 +139,13 @@ class BlockchainDaemonHandler
                     'amount'  => isset($info['amount']) ? $info['amount'] : CurrencyUtil::numberToSatoshis(0.001),
                     'address' => (isset($info['address']) ? $info['address'] : $account['paymentAddress']),
                 ]
-            ]
+            ],
+            'inputs' => [
+                [
+                    'amount'  => isset($info['amount']) ? $info['amount'] : CurrencyUtil::numberToSatoshis(0.001),
+                    'address' => (isset($info['input_address']) ? $info['input_address'] : 'otherperson01'),
+                ]
+            ],
         ];
 
         $block_index = isset($info['blockId']) ? $info['blockId'] : 6000;

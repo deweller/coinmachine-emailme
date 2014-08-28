@@ -121,6 +121,26 @@ class NotificationsTest extends SiteTestCase
         PHPUnit::assertEquals(1, $notifications[0]['confirmations']);
     }
 
+    public function testIgnoreSendFromSelf() {
+        $app = Environment::initEnvironment('test');
+        $this->initMockNotificationManager($app);
+
+        // create an account
+        $account = AccountUtil::createNewLifetimeConfirmedAccount($app);
+
+        // build handler
+        $mock_blockchain_handler = new BlockchainDaemonHandler($this, $app);
+
+        // insert a sample native transaction
+        $sent_data = $mock_blockchain_handler->sendMockNativeMempoolTransaction($account, ['input_address' => $account['bitcoinAddress'], 'address' => $account['bitcoinAddress'], 'amount' => CurrencyUtil::numberToSatoshis(0.500)]);
+
+        // test that we were NOT notified
+        $notifications = MockNotificationManager::getNotifications();
+        PHPUnit::assertCount(0, $notifications);
+    }
+
+
+
     ////////////////////////////////////////////////////////////////////////
 
     protected function initMockNotificationManager($app) {
