@@ -2,8 +2,9 @@
 
 namespace Emailme\Job;
 
-use Exception;
 use Emailme\Debug\Debug;
+use Emailme\EventLog\EventLog;
+use Exception;
 
 /*
 * JobQueueRunner
@@ -87,11 +88,14 @@ class JobQueueRunner
 
         try {
             // execute the job
-            $instance->execute();
+            $result = $instance->execute();
+            EventLog::logError('job.success', ['jobType' => $queue_entry['jobType'], 'result' => $result]);
 
             // success
             $this->beanstalk_client->delete($job);
         } catch (Exception $e) {
+            EventLog::logError('job.failure', ['job' => $queue_entry, 'error' => $e]);
+
             // permanent failure
             $this->beanstalk_client->bury($job);
         }
