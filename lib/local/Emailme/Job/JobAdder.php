@@ -20,7 +20,7 @@ class JobAdder
 
     public function addJob($job_type, $parameters) {
         // Debug::trace("addJob \$job_type=".Debug::desc($job_type)." \$this->tube_name=".Debug::desc($this->tube_name)."",__FILE__,__LINE__,$this);
-        $this->beanstalk_client->useTube($this->tube_name)->put(json_encode([
+        return $this->beanstalk_client->useTube($this->tube_name)->put(json_encode([
             'jobType'  => $job_type,
             'parameters' => $parameters,
         ]));

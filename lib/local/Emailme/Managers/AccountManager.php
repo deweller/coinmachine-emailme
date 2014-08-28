@@ -67,7 +67,7 @@ class AccountManager
 
     public function sendEmail($email_name, $account, $other_vars=[]) {
         $email_params = $this->email_sender->composeEmailParametersFromTemplate($email_name, array_merge(['account' => $account], $other_vars));
-        $this->email_sender->sendEmailInBackgroundWithParameters($email_params);
+        return $this->email_sender->sendEmailInBackgroundWithParameters($email_params);
     }
 
     public function allAccounts() {
