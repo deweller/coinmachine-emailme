@@ -22,8 +22,8 @@ class EmailJob extends BeanstalkJob
     ////////////////////////////////////////////////////////////////////////
 
     public function runJob($parameters) {
-        // pay the hard credits from one user to another
         $response = $this->email_sender->sendEmailWithParams($parameters);
+        return $response;
     }
 
     ////////////////////////////////////////////////////////////////////////
