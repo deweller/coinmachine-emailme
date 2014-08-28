@@ -19,7 +19,7 @@ class BeanstalkJob
 
     public function execute() {
         try {
-            $this->runJob($this->job_queue_entry['parameters']);
+            return $this->runJob($this->job_queue_entry['parameters']);
         } catch (Exception $e) {
             Debug::errorTrace("ERROR: ".$e->getMessage(),__FILE__,__LINE__,$this);
 
