@@ -38,12 +38,6 @@ class ManagersInit {
         $app['notification.manager'] = function($app) {
             return new \Emailme\Managers\NotificationManager($app['redis'], $app['account.manager'], $app['directory']('Notification'));
         };
-
-
-        // $app['paymentAddress.manager'] = function($app) {
-        //     return new \Emailme\Managers\PaymentAddressManager($app['mysql.db'], $app['bitcoin.addressGenerator']);
-        // };
-
     }
 
 

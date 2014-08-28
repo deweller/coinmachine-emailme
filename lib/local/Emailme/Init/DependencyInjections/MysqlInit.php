@@ -38,6 +38,12 @@ class MysqlInit {
             return $pdo;
         });
 
+        $app['mysql.connectionManager'] = $app->share(function($app) {
+            $manager = new \Utipd\MysqlModel\ConnectionManager($app['mysql.connection'].';dbname='.$app['mysql.databaseName'], $app['config']['mysql.username'], $app['config']['mysql.password']);
+            $manager->getConnection()->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            return $manager;
+        });
+
         // not shared
         $app['mysql.newDb'] = function($app) {
             $pdo = new \Utipd\MysqlModel\NestedPDO($app['mysql.connection'].';dbname='.$app['mysql.databaseName'], $app['config']['mysql.username'], $app['config']['mysql.password']);
@@ -46,7 +52,7 @@ class MysqlInit {
         };
 
         $app['mysql.transactionHandler'] = function($app) {
-            return new \Utipd\MysqlModel\MysqlTransaction($app['mysql.db']);
+            return new \Utipd\MysqlModel\MysqlTransaction($app['connectionManager']);
         };
     }
 
@@ -56,7 +62,7 @@ class MysqlInit {
         $app['directory'] = function($app) {
             return function($directory_name) use ($app) {
                 $class = "Emailme\\Models\\Directory\\{$directory_name}Directory";
-                return new $class($app['mysql.db']);
+                return new $class($app['mysql.connectionManager']);
             };
         };
         $app['modelFactory'] = function($app) {
