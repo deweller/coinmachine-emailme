@@ -60,7 +60,11 @@ class AdminController extends BaseSiteController
         foreach ($results as $account) {
             $entries[] = [
                 'title'    => $account['emailCanonical'],
-                'subtitle' => '<span>'.$account['refId']."</span> ".$account['createdDate'],
+                'subtitle' => 
+                    ((isset($account['refId']) and strlen($account['refId'])) ?
+                        '<a href="'.$this->app->url('account-details', ['refId' => $account['refId']]).'">'.$account['refId']."</a> "
+                        : '[unconfirmed] ')
+                    .$account['createdDate'],
                 'data'     => $account,
             ];
         }
