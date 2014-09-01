@@ -36,7 +36,7 @@ class NotificationManager
 #        Debug::trace("\handleNewSendToAccount \$account=".Debug::desc($account)." shouldSend: ".Debug::desc($this->shouldSendNotification($account, $transaction, $number_of_confirmations))."",__FILE__,__LINE__,$this);
         if ($this->shouldSendNotification($account, $transaction, $number_of_confirmations)) {
             // load the account balance
-            $asset_balance = $this->asset_balance_builder->getAssetBalance($transaction, $number_of_confirmations);
+            $asset_balance = $this->asset_balance_builder->getAssetBalance($transaction['destination'], $transaction['asset']);
 
                 // if this is a mempool transaction, add the pending transaction quantity
             if ($number_of_confirmations == 0) {
