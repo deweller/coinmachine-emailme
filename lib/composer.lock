@@ -1525,7 +1525,7 @@
                 }
             ],
             "description": "A Bitcoin and Counterparty block and transaction follower",
-            "time": "2014-08-28 18:51:55"
+            "time": "2014-09-01 14:31:45"
         },
         {
             "name": "utipd/config",
@@ -1578,12 +1578,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/counterparty-follower.git",
-                "reference": "4a1282d4306a9a18757f8935170777145b4e2e00"
+                "reference": "3fbce17a209a0b0528e67d76c735e7caf1a0ad2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/counterparty-follower/zipball/4a1282d4306a9a18757f8935170777145b4e2e00",
-                "reference": "4a1282d4306a9a18757f8935170777145b4e2e00",
+                "url": "https://api.github.com/repos/UTipdMe/counterparty-follower/zipball/3fbce17a209a0b0528e67d76c735e7caf1a0ad2e",
+                "reference": "3fbce17a209a0b0528e67d76c735e7caf1a0ad2e",
                 "shasum": ""
             },
             "require": {
@@ -1621,7 +1621,7 @@
                 "counterparty",
                 "transaction"
             ],
-            "time": "2014-08-20 23:43:52"
+            "time": "2014-09-01 15:17:37"
         },
         {
             "name": "utipd/counterparty-sender",
