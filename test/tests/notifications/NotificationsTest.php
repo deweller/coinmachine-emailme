@@ -140,6 +140,34 @@ class NotificationsTest extends SiteTestCase
     }
 
 
+    public function testIndivisibleAssetNotification() {
+        $app = Environment::initEnvironment('test');
+        // we need to route in order to generate email URLs
+        $app['router.site']->route();
+        $this->initMockNotificationManager($app);
+
+        // create an account
+        $account = AccountUtil::createNewLifetimeConfirmedAccount($app, ['confirmationsToSend' => [1]]);
+
+        // build handler
+        $mock_blockchain_handler = new BlockchainDaemonHandler($this, $app);
+
+        // insert a sample native transaction
+        $sent_data = $mock_blockchain_handler->sendMockCounterpartyTransaction($account, ['destination' => $account['bitcoinAddress'], 'quantity' => 1, 'asset' => 'ICEBUCKET', 'assetInfo' => ['divisible' => false,]]);
+
+        // process two blocks
+        $mock_blockchain_handler->processAllBlocks(6000);
+
+        // test that we were notified
+        $notifications = MockNotificationManager::getNotifications();
+        // echo "\$notifications:\n".json_encode($notifications, 192)."\n";
+        PHPUnit::assertCount(1, $notifications);
+        PHPUnit::assertEquals($account['bitcoinAddress'], $notifications[0]['transaction']['destination']);
+        PHPUnit::assertEquals(1, $notifications[0]['confirmations']);
+        PHPUnit::assertEquals(CurrencyUtil::numberToSatoshis(1), $notifications[0]['transaction']['quantity']);
+        PHPUnit::assertEquals(6000, $notifications[0]['blockId']);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////
 
