@@ -1671,12 +1671,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/form.git",
-                "reference": "6bf0b345d754085be1be5539ea874266b51ada12"
+                "reference": "34e966a6fb92c5922343ecafc494d0cdad5eef35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/form/zipball/6bf0b345d754085be1be5539ea874266b51ada12",
-                "reference": "6bf0b345d754085be1be5539ea874266b51ada12",
+                "url": "https://api.github.com/repos/UTipdMe/form/zipball/34e966a6fb92c5922343ecafc494d0cdad5eef35",
+                "reference": "34e966a6fb92c5922343ecafc494d0cdad5eef35",
                 "shasum": ""
             },
             "require": {
@@ -1706,7 +1706,7 @@
                 "source": "https://github.com/UTipdMe/form/tree/master",
                 "issues": "https://github.com/UTipdMe/form/issues"
             },
-            "time": "2014-08-02 02:32:04"
+            "time": "2014-08-30 16:31:21"
         },
         {
             "name": "utipd/mysqlmodel",
@@ -1757,12 +1757,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/native-follower.git",
-                "reference": "a6d21a508c763a48c01f010d5e6789c69a667cd1"
+                "reference": "9f574688edd3b27dcbd6d4b93a80ab192db49468"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/native-follower/zipball/a6d21a508c763a48c01f010d5e6789c69a667cd1",
-                "reference": "a6d21a508c763a48c01f010d5e6789c69a667cd1",
+                "url": "https://api.github.com/repos/UTipdMe/native-follower/zipball/9f574688edd3b27dcbd6d4b93a80ab192db49468",
+                "reference": "9f574688edd3b27dcbd6d4b93a80ab192db49468",
                 "shasum": ""
             },
             "require": {
@@ -1798,7 +1798,7 @@
                 "orphans",
                 "transaction"
             ],
-            "time": "2014-08-28 17:49:20"
+            "time": "2014-08-28 19:35:21"
         },
         {
             "name": "utipd/simple-daemon",
