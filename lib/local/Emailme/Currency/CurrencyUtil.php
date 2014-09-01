@@ -22,7 +22,7 @@ class CurrencyUtil
 
     public static function satoshisToNumber($satoshis, $places=null) {
         if (!strlen($satoshis)) { return $satoshis; }
-        if ($places === null) { $places = 7; }
+        if ($places === null) { $places = 8; }
         $out = number_format($satoshis / self::SATOSHI, $places);
         if (strpos($out, '.') !== false) {
             $out = rtrim($out, '0');
