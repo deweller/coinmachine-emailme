@@ -19,6 +19,11 @@ This transaction is pending and has not yet been confirmed into a block as of bl
 This transaction has {{confirmations}} confirmation{{confirmations == 1 ? '' : 's'}} as of block {{blockId}}.
 {% endif %}
 
+{% if confirmations == 0 %}
+After this transaction is confirmed, this address will contain {{currentBalance|to_currency}} {{transaction.asset}}.
+{% else %}
+This address now contains {{currentBalance|to_currency}} {{transaction.asset}}.
+{% endif %}
 
 {% if account.isLifetime %}
 To stop receiving these emails or change your preferences, please visit your account settings here:

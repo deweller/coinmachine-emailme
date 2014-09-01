@@ -3,6 +3,7 @@
 namespace Emailme\Managers;
 
 use EmailMe\Debug\Debug;
+use Emailme\Bitcoin\BitcoinAmountTool;
 use Emailme\Currency\CurrencyUtil;
 use Emailme\EventLog\EventLog;
 use Exception;
@@ -15,10 +16,11 @@ class NotificationManager
 
     ////////////////////////////////////////////////////////////////////////
 
-    public function __construct($redis, $account_manager, $notification_directory) {
-        $this->redis = $redis;
-        $this->account_manager = $account_manager;
+    public function __construct($redis, $account_manager, $notification_directory, $asset_balance_builder) {
+        $this->redis                  = $redis;
+        $this->account_manager        = $account_manager;
         $this->notification_directory = $notification_directory;
+        $this->asset_balance_builder  = $asset_balance_builder;
     }
 
     public function publishNotificationUpdate($account) {
@@ -33,7 +35,15 @@ class NotificationManager
     public function handleNewSendToAccount($account, $transaction, $number_of_confirmations, $current_block_id) {
 #        Debug::trace("\handleNewSendToAccount \$account=".Debug::desc($account)." shouldSend: ".Debug::desc($this->shouldSendNotification($account, $transaction, $number_of_confirmations))."",__FILE__,__LINE__,$this);
         if ($this->shouldSendNotification($account, $transaction, $number_of_confirmations)) {
-            $this->sendNotification($account, $transaction, $number_of_confirmations, $current_block_id);
+            // load the account balance
+            $asset_balance = $this->asset_balance_builder->getAssetBalance($transaction, $number_of_confirmations);
+
+                // if this is a mempool transaction, add the pending transaction quantity
+            if ($number_of_confirmations == 0) {
+                $asset_balance = $asset_balance + $transaction['quantity'];
+            }
+
+            $this->sendNotification($account, $transaction, $number_of_confirmations, $current_block_id, $asset_balance);
 
             // mark the notification as sent
             $this->updateAccountNotificationsRemaining($account);
@@ -78,13 +88,14 @@ class NotificationManager
         return $this->notification_directory->findOne(['accountId' => $account['id'], 'tx_hash' => $transaction['tx_hash']], ['confirmations' => -1]);
     }
 
-    public function sendNotification($account, $transaction, $confirmations, $current_block_id) {
+    public function sendNotification($account, $transaction, $confirmations, $current_block_id, $asset_balance) {
 
         $response = $this->account_manager->sendEmail('notification/paid-notification', $account, [
             'transaction'        => $transaction,
             'blockId'            => $current_block_id,
             'confirmations'      => $confirmations,
             'accountDetailsLink' => $this->account_manager->generateAccountDetailsLink($account),
+            'currentBalance'     => $asset_balance,
         ]);
 
         EventLog::logEvent('email.notification', ['accountId' => $account['id'], 'confirmations' => $confirmations, 'response' => $response]);
@@ -145,5 +156,6 @@ class NotificationManager
         return $notifications_out;
         // code
     }
+
 }
 

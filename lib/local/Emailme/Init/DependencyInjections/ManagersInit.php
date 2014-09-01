@@ -36,7 +36,12 @@ class ManagersInit {
 
 
         $app['notification.manager'] = function($app) {
-            return new \Emailme\Managers\NotificationManager($app['redis'], $app['account.manager'], $app['directory']('Notification'));
+            return new \Emailme\Managers\NotificationManager($app['redis'], $app['account.manager'], $app['directory']('Notification'), $app['assetBalanceBuilder']);
+        };
+
+        $app['assetBalanceBuilder'] = function($app) {
+            $guzzle = new \GuzzleHttp\Client();
+            return new \Emailme\Managers\Balance\AssetBalanceBuilder($app['xcpd.client'], $guzzle);
         };
     }
 

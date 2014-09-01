@@ -58,6 +58,13 @@ class JobQueueRunner
         }
     }
 
+    public function pullOneJobAndDeleteIt() {
+        $this->setWatch();
+        $job = $this->beanstalk_client->reserve(0);
+        $this->beanstalk_client->delete($job);
+        return $job;
+    }
+
     public function clearAll() {
         // deletes all jobs
 

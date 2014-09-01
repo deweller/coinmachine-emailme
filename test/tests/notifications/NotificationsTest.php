@@ -18,6 +18,8 @@ class NotificationsTest extends SiteTestCase
 
     public function testMempoolNotification() {
         $app = Environment::initEnvironment('test');
+        // we need to route in order to generate email URLs
+        $app['router.site']->route();
         $this->initMockNotificationManager($app);
 
         // create an account
@@ -74,6 +76,8 @@ class NotificationsTest extends SiteTestCase
 
     public function testCombinedNativeAndCounterpartyMempoolTransaction() {
         $app = Environment::initEnvironment('test');
+        // we need to route in order to generate email URLs
+        $app['router.site']->route();
         $this->initMockNotificationManager($app);
 
         // create an account
@@ -98,6 +102,8 @@ class NotificationsTest extends SiteTestCase
 
     public function testSkippedMempoolNotificationIsStillSent() {
         $app = Environment::initEnvironment('test');
+        // we need to route in order to generate email URLs
+        $app['router.site']->route();
         $this->initMockNotificationManager($app);
 
         // create an account
@@ -169,13 +175,55 @@ class NotificationsTest extends SiteTestCase
     }
 
 
+    public function testNotificationContent() {
+        $app = Environment::initEnvironment('test');
+        // we need to route in order to generate email URLs
+        $app['router.site']->route();
+        $this->initMockNotificationManager($app);
+
+        // create an account
+        $account = AccountUtil::createNewLifetimeConfirmedAccount($app, ['confirmationsToSend' => [1]]);
+
+        // build handler
+        $mock_blockchain_handler = new BlockchainDaemonHandler($this, $app);
+
+        // insert a sample native transaction
+        $sent_data = $mock_blockchain_handler->sendMockCounterpartyTransaction($account, ['destination' => $account['bitcoinAddress'], 'quantity' => 1, 'asset' => 'ICEBUCKET', 'assetInfo' => ['divisible' => false,]]);
+
+        // process two blocks
+        $mock_blockchain_handler->processAllBlocks(6000);
+
+        // test that we were notified
+        $notifications = MockNotificationManager::getNotifications();
+
+        // get content
+        $email = $notifications[0]['email'];
+        PHPUnit::assertNotEmpty($email);
+        PHPUnit::assertContains('1,200 ICEBUCKET', $email['text']);
+    }
+
+
     ////////////////////////////////////////////////////////////////////////
 
     protected function initMockNotificationManager($app) {
         MockNotificationManager::clearNotifications();
+        $job_runner = $app['beanstalk.runnerFactory'](['email']);
+        MockNotificationManager::setJobQueueRunner($job_runner);
         $app['notification.manager'] = function($app) {
-            return new \Emailme\Test\Notification\MockNotificationManager($app['redis'], $app['account.manager'], $app['directory']('Notification'));
+            return new \Emailme\Test\Notification\MockNotificationManager($app['redis'], $app['account.manager'], $app['directory']('Notification'), $this->getMockBalanceBuilder());
+            // return new \Emailme\Managers\NotificationManager($app['redis'], $app['account.manager'], $app['directory']('Notification'), $app['native.client'], $app['xcpd.client']);
         };
+    }
+
+    protected function getMockBalanceBuilder() {
+        if (!isset($this->mock_balance_builder)) {
+            $this->mock_balance_builder = $this->getMockBuilder('\Emailme\Managers\Balance\AssetBalanceBuilder')->disableOriginalConstructor()->getMock();
+            $this->mock_balance_builder
+                ->method('getAssetBalance')
+                ->willReturn(CurrencyUtil::numberToSatoshis(1200));
+
+        }
+        return $this->mock_balance_builder;
     }
 
 
