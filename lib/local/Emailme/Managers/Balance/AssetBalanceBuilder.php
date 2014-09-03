@@ -2,8 +2,8 @@
 
 namespace Emailme\Managers\Balance;
 
-use EmailMe\Debug\Debug;
 use Emailme\Currency\CurrencyUtil;
+use Emailme\Debug\Debug;
 use Exception;
 
 /*
