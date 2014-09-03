@@ -41,9 +41,12 @@ $current_block_id = $app['xcpd.follower']->getLastProcessedBlock();
 $transaction_block_id = $transaction['blockId'];
 $number_of_confirmations = $current_block_id - $transaction_block_id + 1;
 
+// get balance
+$asset_balance = $app['assetBalanceBuilder']->getAssetBalance($transaction['destination'], $transaction['asset']);
+echo "\$asset_balance:\n".json_encode($asset_balance, 192)."\n";
 
 // re-send the transaction
-$notification_manager->sendNotification($account, $transaction, $number_of_confirmations, $current_block_id);
+$notification_manager->sendNotification($account, $transaction, $number_of_confirmations, $current_block_id, $asset_balance);
 
 
 echo "done\n";
