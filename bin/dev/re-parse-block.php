@@ -53,6 +53,10 @@ $sql = "DELETE FROM blockchaintransaction WHERE blockId >= ?";
 $pdo = $app['mysql.combined.connectionManager']->getConnection();
 $sth = $pdo->prepare($sql);
 $result = $sth->execute([$block_id]);
+$sql = "DELETE FROM callbacktriggered WHERE blockId >= ?";
+$pdo = $app['mysql.combined.connectionManager']->getConnection();
+$sth = $pdo->prepare($sql);
+$result = $sth->execute([$block_id]);
 
 
 echo "done\n";
