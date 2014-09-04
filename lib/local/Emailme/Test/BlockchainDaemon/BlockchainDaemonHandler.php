@@ -81,6 +81,7 @@ class BlockchainDaemonHandler
         $send_data['status']      = 'valid';
         $send_data['tx_hash']     = md5('myhash'.$this->mock_tx_index);
         $send_data['assetInfo']   = ['divisible' => true,];
+        $send_data['category']    = 'sends';
 
         $send_data = array_merge($send_data, $send_data_overrides);
 #        Debug::trace("\$send_data=".Debug::desc($send_data)."",__FILE__,__LINE__,$this);
@@ -111,6 +112,7 @@ class BlockchainDaemonHandler
         $send_data['quantity']    = CurrencyUtil::numberToSatoshis(43);
         $send_data['tx_hash']     = 'mmyhash';
         $send_data['assetInfo']   = ['divisible' => true,];
+        $send_data['category']    = 'sends';
 
         $send_data = array_merge($send_data, $send_data_overrides);
 
