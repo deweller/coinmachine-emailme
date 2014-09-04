@@ -162,9 +162,12 @@
                 <span class="payment">
                     <i class="fa fa-arrow-right"></i> Received {{notification.tx.quantity|to_currency}} {{notification.tx.asset}}
                 </span>
+
+                {% if notification.isBlockchainTransactionId %}
                 <span class="tx-link right">
                     <a href="https://blockchain.info/tx/{{notification.tx.tx_hash}}" target="_blank" data-receipt-field="transactionLink">View Transaction <i class="fa fa-external-link"></i></a>
                 </span>
+                {% endif %}
             </div>
             {% endfor %}
         </div>

@@ -91,11 +91,12 @@ class NotificationManager
     public function sendNotification($account, $transaction, $confirmations, $current_block_id, $asset_balance) {
 
         $response = $this->account_manager->sendEmail('notification/paid-notification', $account, [
-            'transaction'        => $transaction,
-            'blockId'            => $current_block_id,
-            'confirmations'      => $confirmations,
-            'accountDetailsLink' => $this->account_manager->generateAccountDetailsLink($account),
-            'currentBalance'     => $asset_balance,
+            'transaction'               => $transaction,
+            'blockId'                   => $current_block_id,
+            'confirmations'             => $confirmations,
+            'accountDetailsLink'        => $this->account_manager->generateAccountDetailsLink($account),
+            'currentBalance'            => $asset_balance,
+            'isBlockChainTransactionId' => (substr($transaction['tx_hash'], 0, 1) === 'M' ? false : true),
         ]);
 
         EventLog::logEvent('email.notification', ['accountId' => $account['id'], 'confirmations' => $confirmations, 'response' => $response]);

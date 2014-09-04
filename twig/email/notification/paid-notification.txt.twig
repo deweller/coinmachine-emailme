@@ -9,8 +9,9 @@ Dear User,
 
 You have received {{transaction.quantity|to_currency}} {{transaction.asset}} paid to your address {{account.bitcoinAddress}}.
 
-
+{% if isBlockChainTransactionId %}
 The transaction ID is {{transaction.tx_hash}}.
+{% endif %}
 
 
 {% if confirmations == 0 %}
