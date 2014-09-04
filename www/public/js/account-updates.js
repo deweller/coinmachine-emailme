@@ -125,11 +125,16 @@
       return '<span class="time">' + m.format("M.DD.YYYY h:mm A") + ' <span class="tz">' + m.format('Z') + '</span>' + '</span>';
     };
     rebuildNotifications = function(notifications) {
-      var html, notification, _i, _len;
+      var html, notification, txLink, _i, _len;
       html = '';
       for (_i = 0, _len = notifications.length; _i < _len; _i++) {
         notification = notifications[_i];
-        html += "<div class=\"notification\">\n    <div class=\"payment-section left\">\n        <span class=\"date\">\n            <span>" + (formatTime(parseInt(notification.sentDate, 10) * 1000)) + "</span>\n        </span>\n        <span class=\"confirmations\">\n            " + notification.confirmations + " confirmation" + (notification.confirmations === 1 ? '' : 's') + "\n        </span>\n    </div>\n    <span class=\"payment\">\n        <i class=\"fa fa-arrow-right\"></i> Received " + (formatCurrency(notification.tx.quantity)) + " " + notification.tx.asset + "\n    </span>\n    <span class=\"tx-link right\">\n        <a href=\"https://blockchain.info/tx/" + notification.tx.tx_hash + "\" target=\"_blank\" data-receipt-field=\"transactionLink\">View Transaction <i class=\"fa fa-external-link\"></i></a>\n    </span>\n</div>";
+        if (notification.tx.tx_hash.substr(0, 1) === 'M') {
+          txLink = '';
+        } else {
+          txLink = "<span class=\"tx-link right\">\n    <a href=\"https://blockchain.info/tx/" + notification.tx.tx_hash + "\" target=\"_blank\" data-receipt-field=\"transactionLink\">View Transaction <i class=\"fa fa-external-link\"></i></a>\n</span>";
+        }
+        html += "<div class=\"notification\">\n    <div class=\"payment-section left\">\n        <span class=\"date\">\n            <span>" + (formatTime(parseInt(notification.sentDate, 10) * 1000)) + "</span>\n        </span>\n        <span class=\"confirmations\">\n            " + notification.confirmations + " confirmation" + (notification.confirmations === 1 ? '' : 's') + "\n        </span>\n    </div>\n    <span class=\"payment\">\n        <i class=\"fa fa-arrow-right\"></i> Received " + (formatCurrency(notification.tx.quantity)) + " " + notification.tx.asset + "\n    </span>\n    " + txLink + "\n</div>";
       }
       $('.notification-list').empty().append(html);
     };

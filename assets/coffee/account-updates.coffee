@@ -143,6 +143,16 @@ do ($=jQuery) ->
     rebuildNotifications = (notifications)->
         html = ''
         for notification in notifications
+            if notification.tx.tx_hash.substr(0,1) == 'M'
+                txLink = ''
+            else
+                txLink = """
+                <span class="tx-link right">
+                    <a href="https://blockchain.info/tx/#{notification.tx.tx_hash}" target="_blank" data-receipt-field="transactionLink">View Transaction <i class="fa fa-external-link"></i></a>
+                </span>
+                """
+
+
             html += """
             <div class="notification">
                 <div class="payment-section left">
@@ -156,9 +166,7 @@ do ($=jQuery) ->
                 <span class="payment">
                     <i class="fa fa-arrow-right"></i> Received #{formatCurrency(notification.tx.quantity)} #{notification.tx.asset}
                 </span>
-                <span class="tx-link right">
-                    <a href="https://blockchain.info/tx/#{notification.tx.tx_hash}" target="_blank" data-receipt-field="transactionLink">View Transaction <i class="fa fa-external-link"></i></a>
-                </span>
+                #{txLink}
             </div>
             """
         $('.notification-list').empty().append(html)
