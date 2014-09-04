@@ -1578,12 +1578,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/counterparty-follower.git",
-                "reference": "a83b251ffe3f94c950e159db41abff501a7e367a"
+                "reference": "f27700aed4b8ed86c176a8c593684ecb182d05dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/counterparty-follower/zipball/a83b251ffe3f94c950e159db41abff501a7e367a",
-                "reference": "a83b251ffe3f94c950e159db41abff501a7e367a",
+                "url": "https://api.github.com/repos/UTipdMe/counterparty-follower/zipball/f27700aed4b8ed86c176a8c593684ecb182d05dc",
+                "reference": "f27700aed4b8ed86c176a8c593684ecb182d05dc",
                 "shasum": ""
             },
             "require": {
