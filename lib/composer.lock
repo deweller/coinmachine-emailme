@@ -1488,12 +1488,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/combined-follower.git",
-                "reference": "15810b6bcb3827c70bf29cf026491e853a189e87"
+                "reference": "7ddccc0554fc04aed27f507542e07c6e1a5ef55e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/15810b6bcb3827c70bf29cf026491e853a189e87",
-                "reference": "15810b6bcb3827c70bf29cf026491e853a189e87",
+                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/7ddccc0554fc04aed27f507542e07c6e1a5ef55e",
+                "reference": "7ddccc0554fc04aed27f507542e07c6e1a5ef55e",
                 "shasum": ""
             },
             "require": {
@@ -1578,12 +1578,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/counterparty-follower.git",
-                "reference": "f27700aed4b8ed86c176a8c593684ecb182d05dc"
+                "reference": "6d01ce7b91fa40cef375bcd1f344404118c8cf2b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/counterparty-follower/zipball/f27700aed4b8ed86c176a8c593684ecb182d05dc",
-                "reference": "f27700aed4b8ed86c176a8c593684ecb182d05dc",
+                "url": "https://api.github.com/repos/UTipdMe/counterparty-follower/zipball/6d01ce7b91fa40cef375bcd1f344404118c8cf2b",
+                "reference": "6d01ce7b91fa40cef375bcd1f344404118c8cf2b",
                 "shasum": ""
             },
             "require": {
@@ -1621,7 +1621,7 @@
                 "counterparty",
                 "transaction"
             ],
-            "time": "2014-09-03 23:44:14"
+            "time": "2014-09-04 00:42:37"
         },
         {
             "name": "utipd/counterparty-sender",
@@ -1629,12 +1629,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/counterparty-sender.git",
-                "reference": "1efd1f54c8363870d437e2534c521c7fda2d1c53"
+                "reference": "8b3c716c600f1244308cc50866a3c4ba71a87408"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/counterparty-sender/zipball/1efd1f54c8363870d437e2534c521c7fda2d1c53",
-                "reference": "1efd1f54c8363870d437e2534c521c7fda2d1c53",
+                "url": "https://api.github.com/repos/UTipdMe/counterparty-sender/zipball/8b3c716c600f1244308cc50866a3c4ba71a87408",
+                "reference": "8b3c716c600f1244308cc50866a3c4ba71a87408",
                 "shasum": ""
             },
             "require": {
@@ -1663,7 +1663,7 @@
                 }
             ],
             "description": "A library",
-            "time": "2014-08-27 03:29:47"
+            "time": "2014-09-04 01:40:25"
         },
         {
             "name": "utipd/form",
