@@ -45,7 +45,7 @@ class BlockchainDaemon
             if ($iteration_count > 60) { throw new Exception("Debug: forcing process restart", 250); }
         };
 
-        $error_handler = function($e) {
+        $error_handler = function($e) use (&$iteration_count) {
             if ($e->getCode() == 250) {
                 // force restart
                 throw $e;
