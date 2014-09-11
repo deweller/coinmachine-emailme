@@ -4,6 +4,7 @@ namespace Emailme\Daemon;
 
 use EmailMe\Debug\Debug;
 use Emailme\EventLog\EventLog;
+use Emailme\EventLog\logEvent;
 use Exception;
 
 /*
@@ -42,7 +43,7 @@ class BlockchainDaemon
             ++$iteration_count;
 
             // restart about every 5 minutes
-            if ($iteration_count > 60) { throw new Exception("Debug: forcing process restart", 250); }
+            if ($iteration_count > 60) { throw new Exception("forcing process restart", 250); }
         };
 
         $error_handler = function($e) use (&$iteration_count) {
@@ -55,7 +56,7 @@ class BlockchainDaemon
 
             // restart about every 5 minutes
             ++$iteration_count;
-            if ($iteration_count > 60) { throw new Exception("Debug: forcing process restart", 250); }
+            if ($iteration_count > 60) { throw new Exception("forcing process restart", 250); }
         };
 
         $daemon = $f($loop_function, $error_handler);
@@ -63,7 +64,11 @@ class BlockchainDaemon
         try {
             $daemon->run();
         } catch (Exception $e) {
-            EventLog::logError('daemon.error.final', $e);
+            if ($e->getCode() == 250) {
+                EventLog::logEvent('daemon.shutdown', ['reason' => $e->getMessage()]);
+            } else { 
+                EventLog::logError('daemon.error.final', $e);
+            }
         }
 
         EventLog::logEvent('daemon.shutdown', []);
