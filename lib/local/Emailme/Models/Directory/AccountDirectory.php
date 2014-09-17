@@ -10,7 +10,7 @@ use Exception;
 */
 class AccountDirectory extends BaseDocumentMysqlDirectory
 {
-    protected $column_names = ['emailCanonical', 'bitcoinAddress', 'paymentAddress', 'confirmToken', 'refId', 'createdDate', 'isLifetime', 'isLifetimeConfirmed',];
+    protected $column_names = ['emailCanonical', 'bitcoinAddress', 'paymentAddress', 'confirmToken', 'refId', 'createdDate', 'isLifetime', 'isLifetimeConfirmed', 'isComp',];
 
 
 }
