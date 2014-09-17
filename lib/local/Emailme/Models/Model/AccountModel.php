@@ -29,7 +29,8 @@ class AccountModel extends BaseDocumentMysqlModel
             case $this['isLifetime']:
                 return 'lifetime (pending)';
             case $this['isConfirmed']:
-                return 'confirmed';
+                $is_active = ($this['notificationsRemaining'] > 0);
+                return 'confirmed - '.($is_active?'active':'inactive');
         }
         return 'unknown';
     }
