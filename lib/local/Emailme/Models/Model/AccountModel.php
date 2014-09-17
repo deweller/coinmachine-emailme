@@ -18,6 +18,22 @@ class AccountModel extends BaseDocumentMysqlModel
         return false;
     }
 
+    public function getAccountStatusDescription() {
+        switch (true) {
+            case !$this['isConfirmed']:
+                return 'unconfirmed';
+            case $this['isComp']:
+                return 'comp';
+            case $this['isLifetimeConfirmed']:
+                return 'lifetime';
+            case $this['isLifetime']:
+                return 'lifetime (pending)';
+            case $this['isConfirmed']:
+                return 'confirmed';
+        }
+        return 'unknown';
+    }
+
     public function isLifetime() {
         return $this->isActive() AND $this['isLifetime'];
     }

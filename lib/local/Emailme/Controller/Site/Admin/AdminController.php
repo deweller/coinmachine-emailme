@@ -58,8 +58,11 @@ class AdminController extends BaseSiteController
         $entries = [];
         $results = AdminUtil::findWithFormData($this->account_directory, $form_spec, $form_data);
         foreach ($results as $account) {
+            $account_model = $this->account_directory->create($account);
+            $status = $account_model->getAccountStatusDescription();
+
             $entries[] = [
-                'title'    => $account['emailCanonical'],
+                'title'    => $account['emailCanonical']." [{$status}]",
                 'subtitle' => 
                     ((isset($account['refId']) and strlen($account['refId'])) ?
                         '<a href="'.$this->app->url('account-details', ['refId' => $account['refId']]).'">'.$account['refId']."</a> "
