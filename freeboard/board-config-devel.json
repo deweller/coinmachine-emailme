@@ -63,6 +63,16 @@
                         "value": "datasources[\"Accounts\"].freeUnconfirmed"
                     },
                     "type": "text_widget"
+                },
+                {
+                    "settings": {
+                        "animate": true,
+                        "size": "regular",
+                        "title": "Comped",
+                        "units": "users",
+                        "value": "datasources[\"Accounts\"].comp"
+                    },
+                    "type": "text_widget"
                 }
             ],
             "width": 1
