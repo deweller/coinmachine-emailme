@@ -41,9 +41,10 @@ xcp.payout:
 genesisBlockID : 314900
 
 account.defaults:
-  isLifetime             : false
-  notificationsRemaining : 2
   isConfirmed            : false
+  isLifetime             : false
+  isComp                 : false
+  notificationsRemaining : 2
   confirmedDate          : 0
   confirmationsToSend    : [3]
 

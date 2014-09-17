@@ -29,7 +29,8 @@ class StatsBuilder
         $out = [
             'freeUnconfirmed' => $this->account_directory->findCountRaw("SELECT * FROM account WHERE isLifetime = false AND paymentAddress IS NULL", []),
             'freeConfirmed' => $this->account_directory->findCountRaw("SELECT * FROM account WHERE isLifetime = false AND paymentAddress IS NOT NULL", []),
-            'paid' => $this->account_directory->findCount(['isLifetime' => true]),
+            'paid' => $this->account_directory->findCount(['isLifetime' => true, 'isComp' => false]),
+            'comp' => $this->account_directory->findCount(['isComp' => true]),
         ];
         return $out;
     }
@@ -47,7 +48,7 @@ class StatsBuilder
         }
 
         $out = [
-            'BTC'     => CurrencyUtil::satoshisToNumber($balance_totals['BTC']),
+            'BTC'     => CurrencyUtil::satoshisToNumber($balance_totals['BTC'], 4),
             'LTBCOIN' => CurrencyUtil::satoshisToNumber($balance_totals['LTBCOIN']),
             'OTHER'   => CurrencyUtil::satoshisToNumber($other_total),
         ];
