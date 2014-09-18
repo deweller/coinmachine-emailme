@@ -63,6 +63,7 @@ class BlockchainDaemon
 
         try {
             $daemon->run();
+            EventLog::logEvent('daemon.shutdown', []);
         } catch (Exception $e) {
             if ($e->getCode() == 250) {
                 EventLog::logEvent('daemon.shutdown', ['reason' => $e->getMessage()]);
@@ -71,7 +72,6 @@ class BlockchainDaemon
             }
         }
 
-        EventLog::logEvent('daemon.shutdown', []);
     }
 
     public function runOneIteration() {
