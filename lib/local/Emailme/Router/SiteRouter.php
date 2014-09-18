@@ -31,7 +31,7 @@ class SiteRouter
         $emailme_site = $this->app['controllers_factory'];
 
         // home
-        $emailme_site->match('/{referralCode}', function(Request $request, $referralCode) {
+        $emailme_site->match('/r/{referralCode}', function(Request $request, $referralCode) {
             return new RedirectResponse($this->app->url('home').'?ref='.$referralCode, 302);
         })->method('GET')->bind('home-referral');
 
