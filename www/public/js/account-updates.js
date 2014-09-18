@@ -31,7 +31,7 @@
     init = function() {};
     updatePayment = function(data) {
       var amount, el, fieldName, type, value, _i, _len, _ref, _ref1, _results;
-      _ref = ['notificationsRemaining'];
+      _ref = ['notificationsRemaining', 'referralEarnings'];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         fieldName = _ref[_i];
         el = $("*[data-field=\"" + fieldName + "\"]");

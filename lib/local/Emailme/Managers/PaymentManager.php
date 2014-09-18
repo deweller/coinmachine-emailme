@@ -17,9 +17,10 @@ class PaymentManager
 
     ////////////////////////////////////////////////////////////////////////
 
-    public function __construct($redis, $account_manager, $prices) {
+    public function __construct($redis, $account_manager, $referral_manager, $prices) {
         $this->redis = $redis;
         $this->account_manager = $account_manager;
+        $this->referral_manager = $referral_manager;
         $this->prices = $prices;
 
     }
@@ -33,10 +34,13 @@ class PaymentManager
             }
         }
 
+        $referral_earnings = $account['referralEarnings'];
+
         $vars = [
             'type'                   => 'payment',
             'balance'                => $balance,
-            'isLifetime'             => $account['isLifetime'],
+            'referralEarnings'       => $referral_earnings,
+            'isLifetime'             => !!$account['isLifetime'],
             'confirmationsToSendMap' => array_fill_keys($account['confirmationsToSend'], true),
             'notificationsRemaining' => $account['isLifetime'] ? 'unlimited' : $account['notificationsRemaining'],
         ];
@@ -110,6 +114,10 @@ class PaymentManager
 
         if ($any_changes) {
             $this->account_manager->update($account, $update_vars);
+
+            if ($update_vars['isLifetimeConfirmed']) {
+                $this->referral_manager->handleNewPaidAccount($account);
+            }
         }
 
         return $any_changes;

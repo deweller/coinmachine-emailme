@@ -31,7 +31,11 @@ class ManagersInit {
         };
 
         $app['payment.manager'] = function($app) {
-            return new \Emailme\Managers\PaymentManager($app['redis'], $app['account.manager'], $app['config']['prices']);
+            return new \Emailme\Managers\PaymentManager($app['redis'], $app['account.manager'], $app['referral.manager'], $app['config']['prices']);
+        };
+
+        $app['referral.manager'] = function($app) {
+            return new \Emailme\Managers\ReferralManager($app['account.manager'], $app['mysql.transactionHandler'], $app['config']['referrals.amounts']);
         };
 
 

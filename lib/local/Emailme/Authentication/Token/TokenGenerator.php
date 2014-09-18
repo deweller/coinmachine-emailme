@@ -14,6 +14,7 @@ class TokenGenerator
     const CONFIRMATION_PREFIX = 'C';
     const ACCOUNT_PREFIX = 'A';
     const ADDRESS_PREFIX = 'B';
+    const REFERRAL_PREFIX = 'r';
 
     ////////////////////////////////////////////////////////////////////////
 

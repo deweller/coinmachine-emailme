@@ -31,8 +31,11 @@ class SiteRouter
         $emailme_site = $this->app['controllers_factory'];
 
         // home
+        $emailme_site->match('/{referralCode}', function(Request $request, $referralCode) {
+            return new RedirectResponse($this->app->url('home').'?ref='.$referralCode, 302);
+        })->method('GET')->bind('home-referral');
+
         $emailme_site->match('/', function(Request $request) {
-            // return $this->app['twig']->render('home/home.twig', ['error' => $error]);
             return $this->app['controller.home']->homeAction($request);
         })->method('GET|POST')->bind('home');
 

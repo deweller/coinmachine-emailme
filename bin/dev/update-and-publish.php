@@ -37,6 +37,7 @@ if (isset($values['p'])) {
 
 
 // publish
+$account = $account->reload();
 $app['payment.manager']->publishPaymentUpdate($account);
 
 

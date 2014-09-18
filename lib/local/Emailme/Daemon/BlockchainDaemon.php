@@ -149,6 +149,11 @@ class BlockchainDaemon
             // and publish
             $account = $account->reload();
             $this->payment_manager->publishPaymentUpdate($account);
+
+            // also publish to referrer account
+            if (strlen($account['referredBy']) AND $referrer_account = $this->account_manager->findByReferralCode($account['referredBy'])) {
+                $this->payment_manager->publishPaymentUpdate($referrer_account);
+            }
         }
     }
 

@@ -52,7 +52,7 @@ class MysqlInit {
         };
 
         $app['mysql.transactionHandler'] = function($app) {
-            return new \Utipd\MysqlModel\MysqlTransaction($app['connectionManager']);
+            return new \Utipd\MysqlModel\MysqlTransaction($app['mysql.connectionManager']);
         };
     }
 

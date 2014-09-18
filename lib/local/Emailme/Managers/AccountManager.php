@@ -47,6 +47,11 @@ class AccountManager
         // balance
         if (!isset($account_vars['balance'])) { $account_vars['balance'] = []; }
 
+        // referral
+        if (!isset($account_vars['referralCode'])) { $account_vars['referralCode'] = $this->token_generator->generateToken('REFERRAL', 9); }
+        if (!isset($account_vars['referralEarnings'])) { $account_vars['referralEarnings'] = 0; }
+        if (!isset($account_vars['referralCount'])) { $account_vars['referralCount'] = 0; }
+
         return $this->account_directory->createAndSave($account_vars);
     }
 
@@ -95,6 +100,9 @@ class AccountManager
     }
     public function findByBitcoinAddress($bitcoin_address) {
         return $this->account_directory->findOne(['bitcoinAddress' => $bitcoin_address]);
+    }
+    public function findByReferralCode($referral_code) {
+        return $this->account_directory->findOne(['referralCode' => $referral_code]);
     }
 
     public function update($account, $vars) {

@@ -44,6 +44,27 @@
             </div>
 
             <div class="section">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <label>Referral Link</label>
+                        <div class="value">
+                            <span data-select-click>{{url('home')}}{{account.referralCode}}</span>
+                            <br/>
+                            <small>Earn 100 LTBCOIN for every paying customer that registers with this link.</small>
+                        </div>
+                    </div>
+                    <div class="medium-6 columns">
+                        <label>Referral Earnings</label>
+                        <div class="value">
+                            <span data-field="referralEarnings" data-formatter="currency">{{account.referralEarnings|to_currency}}</span> LTBCOIN
+                            <br/>
+                            <small>Payouts of 1000 LTBCOIN or more sent on request until automatic payouts are implemented.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
                 <label>Notification Preferences</label>
                 <div class="value confirmation-settings">
                     <div class="row">

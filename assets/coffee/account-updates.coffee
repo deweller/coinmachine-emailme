@@ -51,13 +51,14 @@ do ($=jQuery) ->
         # console.log "updatePayment data",data
 
         # console.log "updatePageVars (3)"
-        for fieldName in ['notificationsRemaining',]
+        for fieldName in ['notificationsRemaining','referralEarnings',]
             el = $("""*[data-field="#{fieldName}"]""")
             continue if not el.length
             value = formatValueByElementSettings(data[fieldName], el)
             el.html(value)
 
         # check isLifetime change
+        # console.log "data.isLifetime=#{data.isLifetime} BOOL="+(if data.isLifetime then 'TRUE' else 'FALSE')
         if data.isLifetime and $('*[data-islifetime="no"]').is(':visible')
             $('.received').show()
             $('#AccountDetails').removeClass('is-trial').addClass('is-paid')

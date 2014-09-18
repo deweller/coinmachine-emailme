@@ -53,6 +53,12 @@ prices:
     LTBCOIN : 1000
     BTC     : 0.003
 
+referrals.amounts:
+  - maxCount: 888888
+    amount: 100
+  - maxCount: 999999
+    amount: 200
+
 email.defaults:
   from_name  : CoinMachine Website
   from_email : support@coinmachine.co

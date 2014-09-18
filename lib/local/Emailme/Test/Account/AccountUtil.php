@@ -17,7 +17,8 @@ class AccountUtil
     public static function newAccountVars() {
         return [
             'email'          => 'account1@devonweller.com',
-            'bitcoinAddress' => '1Ni9cJ9jTaDfPHfcr4nSL8DZTpCjuV4Ypa'
+            'bitcoinAddress' => '1Ni9cJ9jTaDfPHfcr4nSL8DZTpCjuV4Ypa',
+            'referredBy'     => '',
         ];
 
     }

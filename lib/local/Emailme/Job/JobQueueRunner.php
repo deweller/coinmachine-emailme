@@ -96,7 +96,7 @@ class JobQueueRunner
         try {
             // execute the job
             $result = $instance->execute();
-            EventLog::logError('job.success', ['jobType' => $queue_entry['jobType'], 'result' => $result]);
+            EventLog::logEvent('job.success', ['jobType' => $queue_entry['jobType'], 'result' => $result]);
 
             // success
             $this->beanstalk_client->delete($job);

@@ -88,7 +88,7 @@ class HomeController extends BaseSiteController
         }
 
         return $this->renderTwig('home/home.twig', [
-            'submittedData' => isset($submitted_data) ? $submitted_data : $validator->getDefaultValues(),
+            'submittedData' => isset($submitted_data) ? $submitted_data : array_merge($validator->getDefaultValues(), ['referredBy' => $request->query->get('ref')]),
             'error'         => isset($error) ? $error : null,
         ]);
 
@@ -110,7 +110,7 @@ class HomeController extends BaseSiteController
                 'label'     => 'Email',
                 'default'   => '',
                 'validation' => v::email(),
-                'sanitizer' => function($v) { return trim($v); },
+                'sanitizer' => Sanitizer::trim(),
                 'error'     => 'Please enter a valid email address.',
             ],
             'bitcoinAddress' => [
@@ -120,6 +120,14 @@ class HomeController extends BaseSiteController
                 'validation' => function($value) { return strlen($value) ? AddressValidator::isValid($value) : false; },
                 'sanitizer'  => Sanitizer::trim(),
                 'error'      => 'Address must be a valid Bitcoin address.',
+            ],
+            'referredBy' => [
+                'name'       => 'referredBy',
+                'label'      => 'Referred By',
+                'default'   => '',
+                // 'validation' => v::oneOf(v::string()->length(10), v::equals('')),
+                'sanitizer'  => Sanitizer::trim(),
+                'error'      => 'Invalid Referral Code.',
             ],
         ];
         return $spec;

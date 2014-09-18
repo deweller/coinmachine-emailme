@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS `account` (
     `emailCanonical`      varchar(255) NOT NULL DEFAULT '',
     `confirmToken`        varbinary(31) DEFAULT NULL,
     `refId`               varbinary(31) DEFAULT NULL,
+    `referralCode`        varbinary(10) DEFAULT NULL,
+    `referredBy`          varbinary(10) DEFAULT NULL,
     `paymentAddress`      varbinary(34) DEFAULT NULL,
     `createdDate`         int(11) DEFAULT 0,
     `isComp`              int(1) NOT NULL DEFAULT '0',
@@ -23,6 +25,8 @@ CREATE TABLE IF NOT EXISTS `account` (
     UNIQUE KEY `bitcoinAddress_emailCanonical` (`bitcoinAddress`,`emailCanonical`),
     UNIQUE KEY `confirmToken` (`confirmToken`),
     UNIQUE KEY `refId` (`refId`),
+    UNIQUE KEY `referralCode` (`referralCode`),
+    UNIQUE KEY `referredBy` (`referredBy`),
     UNIQUE KEY `paymentAddress` (`paymentAddress`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
