@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `account` (
     UNIQUE KEY `confirmToken` (`confirmToken`),
     UNIQUE KEY `refId` (`refId`),
     UNIQUE KEY `referralCode` (`referralCode`),
-    UNIQUE KEY `referredBy` (`referredBy`),
+    KEY `referredBy` (`referredBy`),
     UNIQUE KEY `paymentAddress` (`paymentAddress`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
 
