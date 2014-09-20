@@ -61,8 +61,6 @@ class AdminController extends BaseSiteController
                 'size'     => '2',
                 'default'  => 25,
             ],
-            // 's1' => ['type' => 'spacer', 'size' => '4',],
-            // 'limit' => $default_form_spec['fields']['limit'],
         ];
 
         $form_data = AdminUtil::getFormData($form_spec, $request);
@@ -90,6 +88,39 @@ class AdminController extends BaseSiteController
 
     public function accountsAction(Request $request) {
         $form_spec = AdminUtil::defaultFormSpec(['sort' => ['createdDate' => -1],]);
+        $form_spec['fields'] = [
+            'accountId' => [
+                'type'          => 'text',
+                'function'      => 'postSearchFilter',
+                // 'regex'      => true,
+                'name'          => 'id',
+                'label'         => 'Account',
+                'placeholder'   => '1001',
+                'size'          => '3',
+                'valueResolver' => function($v) { return $this->resolveAccountId($v); },
+            ],
+            'email' => [
+                'type'          => 'text',
+                'function'      => 'postSearchFilter',
+                // 'regex'      => true,
+                'name'          => 'email',
+                'label'         => 'Email',
+                'placeholder'   => 'me@email.com',
+                'size'          => '3',
+            ],
+            'intro_spacer' => [
+                'type' => 'spacer',
+                'size' => '3',
+            ],
+            'limit' => [
+                'type'     => 'text',
+                'function' => 'limit',
+                'name'     => 'limit',
+                'label'    => 'Limit',
+                'size'     => '2',
+                'default'  => 25,
+            ],
+        ];
         $form_data = AdminUtil::getFormData($form_spec, $request);
 
         $entries = [];
