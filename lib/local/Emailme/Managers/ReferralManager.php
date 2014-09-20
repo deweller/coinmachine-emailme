@@ -28,9 +28,9 @@ class ReferralManager
         $referring_account = $this->account_manager->findByReferralCode($referred_by);
         $amount = $this->determineReferringAmount($referring_account);
         if ($amount) {
-            EventLog::logError('referral.amount', ['referringAccount' => $referring_account['id'], 'newAccount' => $new_paid_account['id'], 'amount' => $amount,]);
+            EventLog::logEvent('referral.amount', ['referringAccount' => $referring_account['id'], 'newAccount' => $new_paid_account['id'], 'amount' => $amount,]);
             $referring_account = $this->incrementReferringAccount($referring_account, $amount);
-            EventLog::logError('referral.applied', ['referringAccount' => $referring_account['id'], 'newAccount' => $new_paid_account['id'], 'amount' => $amount, 'referralCount' => $referring_account['referralCount']]);
+            EventLog::logEvent('referral.applied', ['referringAccount' => $referring_account['id'], 'newAccount' => $new_paid_account['id'], 'amount' => $amount, 'referralCount' => $referring_account['referralCount']]);
         } else {
             EventLog::logError('referral.amount.none', ['referringAccount' => $referring_account['id'], 'newAccount' => $new_paid_account['id']]);
         }

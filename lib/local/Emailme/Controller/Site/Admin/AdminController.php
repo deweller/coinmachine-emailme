@@ -29,7 +29,44 @@ class AdminController extends BaseSiteController
 
     public function logsAction(Request $request) {
         $form_spec = AdminUtil::defaultFormSpec(['sort' => ['timestamp' => -1, 'id' => -1],]);
+        $form_spec['fields'] = [
+            'type' => [
+                'type'        => 'text',
+                'function'    => 'postSearchFilter',
+                // 'regex'       => true,
+                'name'        => 'type',
+                'label'       => 'Type',
+                'placeholder' => 'Filter by Type',
+                'size'        => '3',
+            ],
+            'accountId' => [
+                'type'          => 'text',
+                'function'      => 'postSearchFilter',
+                // 'regex'      => true,
+                'name'          => 'data>accountId',
+                'label'         => 'Account',
+                'placeholder'   => '1001',
+                'size'          => '3',
+                'valueResolver' => function($v) { return $this->resolveAccountId($v); },
+            ],
+            'intro_spacer' => [
+                'type' => 'spacer',
+                'size' => '3',
+            ],
+            'limit' => [
+                'type'     => 'text',
+                'function' => 'limit',
+                'name'     => 'limit',
+                'label'    => 'Limit',
+                'size'     => '2',
+                'default'  => 25,
+            ],
+            // 's1' => ['type' => 'spacer', 'size' => '4',],
+            // 'limit' => $default_form_spec['fields']['limit'],
+        ];
+
         $form_data = AdminUtil::getFormData($form_spec, $request);
+#        Debug::trace("\$form_data=\n".json_encode($form_data, 192),__FILE__,__LINE__,$this);
 
         $entries = [];
         $results = AdminUtil::findWithFormData($this->log_entry_directory, $form_spec, $form_data);
@@ -92,6 +129,25 @@ class AdminController extends BaseSiteController
     }
 
     ////////////////////////////////////////////////////////////////////////
+
+    protected function resolveAccountId($raw_value) {
+        $account = null;
+        if (is_numeric($raw_value)) {
+            $account = $this->account_directory->findById($raw_value);
+        }
+
+        if (!$account) {
+            // try by bitcoin address
+            $account = $this->account_directory->findOne(['bitcoinAddress' => $raw_value]);
+        }
+        if (!$account) {
+            // try refId
+            $account = $this->account_directory->findOne(['refId' => $raw_value]);
+        }
+
+        if ($account) { return $account['id']; }
+        return 'notfound';
+    }
 
 }
 
