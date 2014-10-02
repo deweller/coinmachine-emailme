@@ -3,13 +3,13 @@
 
 declare(ticks=1);
 
-use Emailme\Bitcoin\BitcoinKeyUtils;
 use Emailme\Currency\CurrencyUtil;
 use Emailme\Init\Environment;
 use Emailme\Util\DB\DBUpdater;
 use Emailme\Util\DB\TestDBUpdater;
 use Emailme\Util\Params\ParamsUtil;
 use Emailme\Util\Twig\TwigUtil;
+use Utipd\BitcoinAddressLib\BitcoinKeyUtils;
 
 define('BASE_PATH', realpath(__DIR__.'/../..'));
 require BASE_PATH.'/lib/vendor/autoload.php';

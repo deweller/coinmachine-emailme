@@ -21,7 +21,8 @@
         "utipd/xcpd-client": "dev-master",
         "utipd/combined-follower": "dev-master",
         "utipd/counterparty-sender": "dev-master",
-        "utipd/bitcoin-payer": "dev-master"
+        "utipd/bitcoin-payer": "dev-master",
+        "utipd/bitcoin-address-lib": "dev-master"
     },
 
     "autoload": {

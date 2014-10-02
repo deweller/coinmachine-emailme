@@ -3,7 +3,7 @@
 
 declare(ticks=1);
 
-use Emailme\Bitcoin\BitcoinKeyUtils;
+use Utipd\BitcoinAddressLib\BitcoinKeyUtils;
 use Emailme\Currency\CurrencyUtil;
 use Emailme\Init\Environment;
 use Emailme\Util\DB\DBUpdater;
