@@ -1,6 +1,6 @@
 <?php
 
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\Debug\Debug;
 use Emailme\Init\Environment;
 use Emailme\Test\Account\AccountUtil;

@@ -5,7 +5,7 @@
 use BitWasp\BitcoinLib\BIP32;
 use BitWasp\BitcoinLib\BitcoinLib;
 use Emailme\Auctioneer\Payer\BTCSweeper;
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\Init\Environment;
 
 

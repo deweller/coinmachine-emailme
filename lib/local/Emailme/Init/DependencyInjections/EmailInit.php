@@ -37,7 +37,7 @@ class EmailInit {
 
         $app['email.twig'] = function($app) {
             $twig = new \Twig_Environment(new \Twig_Loader_Filesystem(BASE_PATH.'/twig/email'));
-            \Emailme\Currency\CurrencyUtil::addTwigFilters($twig);
+            \Utipd\CurrencyLib\CurrencyUtil::addTwigFilters($twig);
             return $twig;
         };
 

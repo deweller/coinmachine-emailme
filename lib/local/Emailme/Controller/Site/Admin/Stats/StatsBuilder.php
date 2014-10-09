@@ -3,7 +3,7 @@
 namespace Emailme\Controller\Site\Admin\Stats;
 
 use EmailMe\Debug\Debug;
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Exception;
 
 /*

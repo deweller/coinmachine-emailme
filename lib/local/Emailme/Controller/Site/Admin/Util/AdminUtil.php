@@ -3,7 +3,7 @@
 namespace Emailme\Controller\Site\Admin\Util;
 
 use Exception;
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 

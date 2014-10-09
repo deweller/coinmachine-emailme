@@ -3,7 +3,7 @@
 
 declare(ticks=1);
 
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\Init\Environment;
 
 define('BASE_PATH', realpath(__DIR__.'/../..'));

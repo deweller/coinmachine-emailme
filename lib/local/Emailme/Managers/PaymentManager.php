@@ -3,7 +3,7 @@
 namespace Emailme\Managers;
 
 use EmailMe\Debug\Debug;
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\EventLog\EventLog;
 use Exception;
 

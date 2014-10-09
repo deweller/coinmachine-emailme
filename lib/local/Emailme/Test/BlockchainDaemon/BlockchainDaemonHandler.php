@@ -3,7 +3,7 @@
 namespace Emailme\Test\BlockchainDaemon;
 
 
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\Daemon\BlockchainDaemon;
 use Emailme\Debug\Debug;
 use Exception;

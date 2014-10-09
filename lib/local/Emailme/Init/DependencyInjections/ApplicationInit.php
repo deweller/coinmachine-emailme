@@ -3,7 +3,7 @@
 namespace Emailme\Init\DependencyInjections;
 
 use Exception;
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\Debug\Debug;
 use Emailme\Init\Controller\ControllerResolver;
 use Symfony\Component\HttpFoundation\Response;

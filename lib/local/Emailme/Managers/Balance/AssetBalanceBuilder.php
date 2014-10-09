@@ -2,7 +2,7 @@
 
 namespace Emailme\Managers\Balance;
 
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\Debug\Debug;
 use Exception;
 

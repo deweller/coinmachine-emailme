@@ -2,11 +2,11 @@
 
 namespace Emailme\Init\DependencyInjections;
 
-use Exception;
-use Emailme\Currency\CurrencyUtil;
 use Emailme\Debug\Debug;
 use Emailme\Init\Controller\ControllerResolver;
+use Exception;
 use Symfony\Component\HttpFoundation\Response;
+use Utipd\CurrencyLib\CurrencyUtil;
 
 /*
 * DaemonInit

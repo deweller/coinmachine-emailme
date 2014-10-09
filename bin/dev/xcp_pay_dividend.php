@@ -4,7 +4,7 @@
 declare(ticks=1);
 
 use Utipd\BitcoinAddressLib\BitcoinKeyUtils;
-use Emailme\Currency\CurrencyUtil;
+use Utipd\CurrencyLib\CurrencyUtil;
 use Emailme\Init\Environment;
 use Emailme\Util\DB\DBUpdater;
 use Emailme\Util\DB\TestDBUpdater;

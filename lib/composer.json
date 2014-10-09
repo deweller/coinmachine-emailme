@@ -22,7 +22,8 @@
         "utipd/combined-follower": "dev-master",
         "utipd/counterparty-sender": "dev-master",
         "utipd/bitcoin-payer": "dev-master",
-        "utipd/bitcoin-address-lib": "dev-master"
+        "utipd/bitcoin-address-lib": "dev-master",
+        "utipd/currency-lib": "dev-master"
     },
 
     "autoload": {
