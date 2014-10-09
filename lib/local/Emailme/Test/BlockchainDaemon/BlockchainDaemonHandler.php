@@ -62,7 +62,7 @@ class BlockchainDaemonHandler
     public function setupDaemon() {
         if (!isset($this->daemon)) {
             $app = $this->app;
-            $this->daemon = new BlockchainDaemon($this->getCombinedFollower(), $app['simpleDaemon'], $app['account.manager'], $app['payment.manager'], $app['notification.manager']);
+            $this->daemon = new BlockchainDaemon($this->getCombinedFollower(), $app['simpleDaemon'], $app['account.manager'], $app['payment.manager'], $app['notification.manager'], $app['process.heartbeat']);
             $this->daemon->setup();
         }
         return $this->daemon;

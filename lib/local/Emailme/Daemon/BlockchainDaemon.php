@@ -15,12 +15,13 @@ class BlockchainDaemon
 
     ////////////////////////////////////////////////////////////////////////
 
-    public function __construct($combined_follower, $simple_daemon_factory, $account_manager, $payment_manager, $notification_manager) {
+    public function __construct($combined_follower, $simple_daemon_factory, $account_manager, $payment_manager, $notification_manager, $process_heartbeat) {
         $this->combined_follower     = $combined_follower;
         $this->simple_daemon_factory = $simple_daemon_factory;
         $this->account_manager       = $account_manager;
         $this->payment_manager       = $payment_manager;
-        $this->notification_manager  = $notification_manager ;
+        $this->notification_manager  = $notification_manager;
+        $this->process_heartbeat     = $process_heartbeat;
     }
 
     public function setupAndRun() {
@@ -75,6 +76,8 @@ class BlockchainDaemon
     }
 
     public function runOneIteration() {
+        $this->process_heartbeat->beat('blockchaindaemon');
+
 #        Debug::trace("begin runOneIteration",__FILE__,__LINE__,$this);
         $this->combined_follower->runOneIteration();
 #        Debug::trace("end runOneIteration",__FILE__,__LINE__,$this);

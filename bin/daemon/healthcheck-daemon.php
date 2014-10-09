@@ -22,13 +22,7 @@ $app_env = isset($values['e']) ? $values['e'] : null;
 $app = Environment::initEnvironment($app_env, 'emaildaemon');
 echo "Environment: ".$app['config']['env']."\n";
 
+// run the follower daemon
+$daemon = $app['healthcheck.daemon'];
+$daemon->setupAndRun();
 
-EventLog::logEvent('email.daemon.start', []);
-try {
-    // run the daemon
-    $daemon = $app['beanstalk.runnerFactory'](['email'], 'emaildaemon');
-    $daemon->run();
-} catch (Exception $e) {
-    EventLog::logError('email.daemon.error.final', $e);
-}
-EventLog::logEvent('email.daemon.shutdown', []);

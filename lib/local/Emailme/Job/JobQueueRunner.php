@@ -14,13 +14,21 @@ class JobQueueRunner
 
     protected $beanstalk_client = null;
     protected $tube_names = null;
+    protected $process_heartbeat = null;
+    protected $process_heartbeat_name = null;
+
+    protected $timeout = 10;
 
     ////////////////////////////////////////////////////////////////////////
 
-    public function __construct($beanstalk_client, $dependency_injector) {
-        $this->beanstalk_client = $beanstalk_client;
-        $this->dependency_injector = $dependency_injector;
+    public function __construct($beanstalk_client, $dependency_injector, $process_heartbeat) {
+        $this->beanstalk_client       = $beanstalk_client;
+        $this->dependency_injector    = $dependency_injector;
+        $this->process_heartbeat      = $process_heartbeat;
+    }
 
+    public function setProcessName($process_heartbeat_name) {
+        $this->process_heartbeat_name = $process_heartbeat_name;
     }
 
     public function watchTubes($tube_names) {
@@ -35,8 +43,15 @@ class JobQueueRunner
         $this->setWatch();
 
         while (true) {
-            $job = $this->beanstalk_client->reserve();
-            $this->runJob($job);
+            // heartbeat
+            if ($this->process_heartbeat_name) {
+                $this->process_heartbeat->beat($this->process_heartbeat_name);
+            }
+
+            $job = $this->beanstalk_client->reserve($this->timeout);
+            if ($job) {
+                $this->runJob($job);
+            }
         }
     }
 

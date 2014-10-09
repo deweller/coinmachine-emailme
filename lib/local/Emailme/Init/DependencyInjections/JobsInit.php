@@ -29,12 +29,15 @@ class JobsInit {
             };
         };
         $app['beanstalk.runner'] = function($app) {
-            return new \Emailme\Job\JobQueueRunner($app['beanstalk.client'], $app);
+            return new \Emailme\Job\JobQueueRunner($app['beanstalk.client'], $app, $app['process.heartbeat']);
         };
         $app['beanstalk.runnerFactory'] = function($app) {
-            return function($tube_names) use ($app) {
+            return function($tube_names, $process_heartbeat_name=null) use ($app) {
                 $runner = $app['beanstalk.runner'];
                 $runner->watchTubes($tube_names);
+                if ($process_heartbeat_name !== null) {
+                    $runner->setProcessName($process_heartbeat_name);
+                }
                 return $runner;
             };
         };

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6b389bf501786fdf2c9a905b4a9f3c72",
+    "hash": "d6dd1d6f6caa7a728bb6a41d1e335aa5",
     "packages": [
         {
             "name": "bitwasp/bitcoin-lib",
@@ -99,16 +99,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "4.2.2",
+            "version": "4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "9c4fbbf6457768f5036fbd88f1229f3fca812a5d"
+                "reference": "66fd916e9f9130bc22c51450476823391cb2f67c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9c4fbbf6457768f5036fbd88f1229f3fca812a5d",
-                "reference": "9c4fbbf6457768f5036fbd88f1229f3fca812a5d",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/66fd916e9f9130bc22c51450476823391cb2f67c",
+                "reference": "66fd916e9f9130bc22c51450476823391cb2f67c",
                 "shasum": ""
             },
             "require": {
@@ -160,7 +160,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-09-08 22:11:58"
+            "time": "2014-10-05 19:29:14"
         },
         {
             "name": "guzzlehttp/streams",
@@ -1710,6 +1710,46 @@
             "time": "2014-09-04 01:40:25"
         },
         {
+            "name": "utipd/currency-lib",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UTipdMe/currency-lib.git",
+                "reference": "a6233c0d375050be1aa8efd2f84d5502f5c19b55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UTipdMe/currency-lib/zipball/a6233c0d375050be1aa8efd2f84d5502f5c19b55",
+                "reference": "a6233c0d375050be1aa8efd2f84d5502f5c19b55",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Utipd\\CurrencyLib": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Devon Weller",
+                    "email": "dweller@devonweller.com",
+                    "homepage": "http://devonweller.com"
+                }
+            ],
+            "description": "A simple bitcoin currency library",
+            "time": "2014-10-02 12:31:52"
+        },
+        {
             "name": "utipd/form",
             "version": "dev-master",
             "source": {
@@ -1850,12 +1890,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/simple-daemon.git",
-                "reference": "711c06b6b5226e495cff278ba02941b4342e37a0"
+                "reference": "8bea5b6fe1df2d746aa4526115b7d40d13dbd9e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/simple-daemon/zipball/711c06b6b5226e495cff278ba02941b4342e37a0",
-                "reference": "711c06b6b5226e495cff278ba02941b4342e37a0",
+                "url": "https://api.github.com/repos/UTipdMe/simple-daemon/zipball/8bea5b6fe1df2d746aa4526115b7d40d13dbd9e2",
+                "reference": "8bea5b6fe1df2d746aa4526115b7d40d13dbd9e2",
                 "shasum": ""
             },
             "require": {
@@ -1886,7 +1926,7 @@
                 "source": "https://github.com/UTipdMe/simple-daemon/tree/master",
                 "issues": "https://github.com/UTipdMe/simple-daemon/issues"
             },
-            "time": "2014-08-10 03:45:03"
+            "time": "2014-10-08 23:22:11"
         },
         {
             "name": "utipd/xcpd-client",
@@ -1946,7 +1986,8 @@
         "utipd/combined-follower": 20,
         "utipd/counterparty-sender": 20,
         "utipd/bitcoin-payer": 20,
-        "utipd/bitcoin-address-lib": 20
+        "utipd/bitcoin-address-lib": 20,
+        "utipd/currency-lib": 20
     },
     "prefer-stable": false,
     "platform": [],
