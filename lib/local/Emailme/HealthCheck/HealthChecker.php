@@ -65,7 +65,7 @@ class HealthChecker
     }
 
     protected function checkHealth_blockchaindaemon() {
-        $this->checkHeartbeat('blockchaindaemon', 'Blockchain Daemon');
+        $this->checkHeartbeat('blockchaindaemon', 'Blockchain Daemon', 120); // 2 minutes
     }
 
 
@@ -82,10 +82,10 @@ class HealthChecker
         }
     }
 
-    protected function checkHeartbeat($process_name, $process_desc=null) {
+    protected function checkHeartbeat($process_name, $process_desc=null, $allowed_length=null) {
         if ($process_desc === null) { $process_desc = $process_name; }
 
-        if (!$this->heartbeat->processIsAlive($process_name)) {
+        if (!$this->heartbeat->processIsAlive($process_name, $allowed_length)) {
             $last_time = $this->heartbeat->getLastHeartbeatTime($process_name);
             if ($last_time) {
                 $delay = time() - $last_time;

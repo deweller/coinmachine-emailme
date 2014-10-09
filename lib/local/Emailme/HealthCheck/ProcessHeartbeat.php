@@ -23,7 +23,8 @@ class ProcessHeartbeat
         $this->redis->SETEX('beat/'.$process_name, $this->expire, time());
     }
 
-    public function processIsAlive($process_name, $allowed_length=60) {
+    public function processIsAlive($process_name, $allowed_length=null) {
+        if ($allowed_length === null) { $allowed_length = 60; }
         $last_beat = $this->getLastHeartbeatTime($process_name);
         if ($last_beat === null) { return false; }
         $time_since_last_beat = time() - $last_beat;
