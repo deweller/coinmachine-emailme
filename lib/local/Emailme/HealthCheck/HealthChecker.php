@@ -75,7 +75,7 @@ class HealthChecker
         $expected_block_count = $this->getBlockchainBlockCount();
         $actual_block_count = $follower->getLastProcessedBlock();
 
-        $allowed_gap = 1;
+        $allowed_gap = 2;
         $actual_gap = $expected_block_count - $actual_block_count;
         if ($actual_gap > $allowed_gap) {
             throw new Exception("{$desc} follower is {$actual_gap} blocks behind block height of {$expected_block_count}. Last block processed was {$actual_block_count}.", 1);
