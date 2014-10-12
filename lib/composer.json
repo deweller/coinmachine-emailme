@@ -1,6 +1,7 @@
 {
     "require": {
         "bitwasp/bitcoin-lib": "dev-master",
+        "mdanter/ecc": "dev-master",
         "deweller/cliopts": "~1",
         "linusu/bitcoin-address-validator": "~0",
         "mandrill/mandrill": "~1",

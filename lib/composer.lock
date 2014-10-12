@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6dd1d6f6caa7a728bb6a41d1e335aa5",
+    "hash": "24e9ca3e1e95d37ae8f4bf4053c388bc",
     "packages": [
         {
             "name": "bitwasp/bitcoin-lib",
@@ -12,29 +12,28 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bit-Wasp/bitcoin-lib-php.git",
-                "reference": "10f05803da952551baca32d9f8c61e5f4e0bd5c8"
+                "reference": "1f5e63ccd48589d7dd020419bde2faac30959446"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-lib-php/zipball/10f05803da952551baca32d9f8c61e5f4e0bd5c8",
-                "reference": "10f05803da952551baca32d9f8c61e5f4e0bd5c8",
+                "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-lib-php/zipball/1f5e63ccd48589d7dd020419bde2faac30959446",
+                "reference": "1f5e63ccd48589d7dd020419bde2faac30959446",
                 "shasum": ""
             },
             "require": {
                 "ext-gmp": "*",
+                "mdanter/ecc": "dev-master",
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7",
+                "squizlabs/php_codesniffer": "~1.5"
             },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "BitWasp\\BitcoinLib\\": "src/"
-                },
-                "files": [
-                    "ecc-lib/auto_load.php"
-                ],
-                "classmap": [
-                    "ecc-lib/classes/"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -47,7 +46,7 @@
                 }
             ],
             "description": "Bitcoin library",
-            "time": "2014-09-28 01:02:00"
+            "time": "2014-10-10 18:03:51"
         },
         {
             "name": "deweller/cliopts",
@@ -305,6 +304,65 @@
                 "email"
             ],
             "time": "2014-06-26 18:02:01"
+        },
+        {
+            "name": "mdanter/ecc",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mdanter/phpecc.git",
+                "reference": "567f1b6351d658247dc5f23fe7847edfef29288d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mdanter/phpecc/zipball/567f1b6351d658247dc5f23fe7847edfef29288d",
+                "reference": "567f1b6351d658247dc5f23fe7847edfef29288d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.1",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "suggest": {
+                "ext-bcmath": "Required if GMP is not installed.",
+                "ext-gmp": "Improves drastically ECDSA library performance"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mdanter\\Ecc\\Tests\\": "tests/unit",
+                    "Mdanter\\Ecc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matyas Danter",
+                    "homepage": "http://matejdanter.com/",
+                    "role": "Author"
+                },
+                {
+                    "name": "Thibaud Fabre",
+                    "email": "thibaud@aztech.io",
+                    "homepage": "http://aztech.io",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Drak",
+                    "email": "drak@zikula.org",
+                    "homepage": "http://zikula.org",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "PHP Elliptic Curve Cryptography library",
+            "homepage": "https://github.com/mdanter/phpecc",
+            "time": "2014-10-10 17:57:38"
         },
         {
             "name": "monolog/monolog",
@@ -1388,16 +1446,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.16.0",
+            "version": "v1.16.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "8ce37115802e257a984a82d38254884085060024"
+                "reference": "7c4c01dcf578523cfcddf383641a4f12790270ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8ce37115802e257a984a82d38254884085060024",
-                "reference": "8ce37115802e257a984a82d38254884085060024",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/7c4c01dcf578523cfcddf383641a4f12790270ec",
+                "reference": "7c4c01dcf578523cfcddf383641a4f12790270ec",
                 "shasum": ""
             },
             "require": {
@@ -1441,7 +1499,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-07-05 12:19:05"
+            "time": "2014-10-10 14:09:53"
         },
         {
             "name": "utipd/bitcoin-address-lib",
@@ -1449,12 +1507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/bitcoin-address-lib.git",
-                "reference": "083636a4ec29453f86175f0061c5d7be72628357"
+                "reference": "2aa01677a5c2008926889a4aac51cc74f942ed9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/bitcoin-address-lib/zipball/083636a4ec29453f86175f0061c5d7be72628357",
-                "reference": "083636a4ec29453f86175f0061c5d7be72628357",
+                "url": "https://api.github.com/repos/UTipdMe/bitcoin-address-lib/zipball/2aa01677a5c2008926889a4aac51cc74f942ed9c",
+                "reference": "2aa01677a5c2008926889a4aac51cc74f942ed9c",
                 "shasum": ""
             },
             "require": {
@@ -1482,7 +1540,7 @@
                 }
             ],
             "description": "A bitcoin address helper library",
-            "time": "2014-10-02 12:15:36"
+            "time": "2014-10-09 14:21:13"
         },
         {
             "name": "utipd/bitcoin-payer",
@@ -1490,12 +1548,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/bitcoin-payer.git",
-                "reference": "10210f9dba6e25db6115432f02ef9ffe3b3a595e"
+                "reference": "4842acc0e7954815c0b0f1e345708082388db494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/bitcoin-payer/zipball/10210f9dba6e25db6115432f02ef9ffe3b3a595e",
-                "reference": "10210f9dba6e25db6115432f02ef9ffe3b3a595e",
+                "url": "https://api.github.com/repos/UTipdMe/bitcoin-payer/zipball/4842acc0e7954815c0b0f1e345708082388db494",
+                "reference": "4842acc0e7954815c0b0f1e345708082388db494",
                 "shasum": ""
             },
             "require": {
@@ -1524,7 +1582,7 @@
                 }
             ],
             "description": "A bitcoin payment library",
-            "time": "2014-08-27 12:48:18"
+            "time": "2014-10-09 14:36:41"
         },
         {
             "name": "utipd/combined-follower",
@@ -1532,18 +1590,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/combined-follower.git",
-                "reference": "47f51b17962cbebe55f0eaa473de12c648a4e50c"
+                "reference": "87cbe52219753495c293ec61ce8f63486cecc729"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/47f51b17962cbebe55f0eaa473de12c648a4e50c",
-                "reference": "47f51b17962cbebe55f0eaa473de12c648a4e50c",
+                "url": "https://api.github.com/repos/UTipdMe/combined-follower/zipball/87cbe52219753495c293ec61ce8f63486cecc729",
+                "reference": "87cbe52219753495c293ec61ce8f63486cecc729",
                 "shasum": ""
             },
             "require": {
                 "nbobtc/bitcoind-php": "dev-master",
                 "php": ">=5.5.0",
                 "utipd/counterparty-follower": "dev-master",
+                "utipd/currency-lib": "dev-master",
                 "utipd/mysqlmodel": "dev-master",
                 "utipd/native-follower": "dev-master",
                 "utipd/xcpd-client": "dev-master"
@@ -1569,7 +1628,7 @@
                 }
             ],
             "description": "A Bitcoin and Counterparty block and transaction follower",
-            "time": "2014-09-15 12:39:25"
+            "time": "2014-10-09 00:19:28"
         },
         {
             "name": "utipd/config",
@@ -1715,12 +1774,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/UTipdMe/currency-lib.git",
-                "reference": "a6233c0d375050be1aa8efd2f84d5502f5c19b55"
+                "reference": "3506cbfd7382bddb72e19ec65f297629220ba535"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/UTipdMe/currency-lib/zipball/a6233c0d375050be1aa8efd2f84d5502f5c19b55",
-                "reference": "a6233c0d375050be1aa8efd2f84d5502f5c19b55",
+                "url": "https://api.github.com/repos/UTipdMe/currency-lib/zipball/3506cbfd7382bddb72e19ec65f297629220ba535",
+                "reference": "3506cbfd7382bddb72e19ec65f297629220ba535",
                 "shasum": ""
             },
             "require": {
@@ -1747,7 +1806,7 @@
                 }
             ],
             "description": "A simple bitcoin currency library",
-            "time": "2014-10-02 12:31:52"
+            "time": "2014-10-09 12:54:16"
         },
         {
             "name": "utipd/form",
@@ -1975,6 +2034,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "bitwasp/bitcoin-lib": 20,
+        "mdanter/ecc": 20,
         "nbobtc/bitcoind-php": 20,
         "utipd/config": 20,
         "utipd/counterparty-follower": 20,
