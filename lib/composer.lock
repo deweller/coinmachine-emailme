@@ -16,7 +16,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-lib-php/zipball/1f5e63ccd48589d7dd020419bde2faac30959446",
+                "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-lib-php/zipball/10f05803da952551baca32d9f8c61e5f4e0bd5c8",
                 "reference": "10f05803da952551baca32d9f8c61e5f4e0bd5c8",
                 "shasum": ""
             },
@@ -24,16 +24,19 @@
                 "ext-gmp": "*",
                 "php": ">=5.3.3"
             },
-            "require-dev": {
-                "phpunit/phpunit": "~3.7",
-                "squizlabs/php_codesniffer": "~1.5"
-            },
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "BitWasp\\BitcoinLib\\": "src/"
-                }
+                },
+                "files": [
+                    "ecc-lib/auto_load.php"
+                ],
+                "classmap": [
+                    "ecc-lib/classes/"
+                ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Unlicense"
             ],
@@ -44,10 +47,6 @@
                 }
             ],
             "description": "Bitcoin library",
-            "support": {
-                "source": "https://github.com/Bit-Wasp/bitcoin-lib-php/tree/master",
-                "issues": "https://github.com/Bit-Wasp/bitcoin-lib-php/issues"
-            },
             "time": "2014-09-28 01:02:00"
         },
         {
