@@ -22,7 +22,6 @@
             },
             "require": {
                 "ext-gmp": "*",
-                "mdanter/ecc": "dev-master",
                 "php": ">=5.3.3"
             },
             "require-dev": {
@@ -1978,7 +1977,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "bitwasp/bitcoin-lib": 20,
-        "mdanter/ecc": 20,
         "nbobtc/bitcoind-php": 20,
         "utipd/config": 20,
         "utipd/counterparty-follower": 20,
