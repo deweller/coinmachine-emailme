@@ -1,6 +1,6 @@
 {
     "require": {
-        "bitwasp/bitcoin-lib": "dev-master",
+        "bitwasp/bitcoin-lib": "dev-master#ccb49d8dea2247dfee8b76f04b461620cf63850b",
         "mdanter/ecc": "dev-master",
         "deweller/cliopts": "~1",
         "linusu/bitcoin-address-validator": "~0",
@@ -49,6 +49,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/UTipdMe/form"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Bit-Wasp/bitcoin-lib-php"
         }
     ]
 

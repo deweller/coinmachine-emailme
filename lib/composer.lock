@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "24e9ca3e1e95d37ae8f4bf4053c388bc",
+    "hash": "3e3d73f3c0335ae0991c6c019a1a7a57",
     "packages": [
         {
             "name": "bitwasp/bitcoin-lib",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bit-Wasp/bitcoin-lib-php.git",
-                "reference": "1f5e63ccd48589d7dd020419bde2faac30959446"
+                "reference": "ccb49d8dea2247dfee8b76f04b461620cf63850b"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-lib-php/zipball/1f5e63ccd48589d7dd020419bde2faac30959446",
-                "reference": "1f5e63ccd48589d7dd020419bde2faac30959446",
+                "reference": "ccb49d8dea2247dfee8b76f04b461620cf63850b",
                 "shasum": ""
             },
             "require": {
@@ -35,7 +35,6 @@
                     "BitWasp\\BitcoinLib\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "Unlicense"
             ],
@@ -46,7 +45,11 @@
                 }
             ],
             "description": "Bitcoin library",
-            "time": "2014-10-10 18:03:51"
+            "support": {
+                "source": "https://github.com/Bit-Wasp/bitcoin-lib-php/tree/master",
+                "issues": "https://github.com/Bit-Wasp/bitcoin-lib-php/issues"
+            },
+            "time": "2014-09-19 17:19:18"
         },
         {
             "name": "deweller/cliopts",
@@ -311,12 +314,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mdanter/phpecc.git",
-                "reference": "567f1b6351d658247dc5f23fe7847edfef29288d"
+                "reference": "35fd62ecc865c2db7a0fe7b4c8799c2f90ede1cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mdanter/phpecc/zipball/567f1b6351d658247dc5f23fe7847edfef29288d",
-                "reference": "567f1b6351d658247dc5f23fe7847edfef29288d",
+                "url": "https://api.github.com/repos/mdanter/phpecc/zipball/35fd62ecc865c2db7a0fe7b4c8799c2f90ede1cb",
+                "reference": "35fd62ecc865c2db7a0fe7b4c8799c2f90ede1cb",
                 "shasum": ""
             },
             "require": {
@@ -362,7 +365,7 @@
             ],
             "description": "PHP Elliptic Curve Cryptography library",
             "homepage": "https://github.com/mdanter/phpecc",
-            "time": "2014-10-10 17:57:38"
+            "time": "2014-10-14 15:45:20"
         },
         {
             "name": "monolog/monolog",
