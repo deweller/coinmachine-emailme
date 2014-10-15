@@ -309,65 +309,6 @@
             "time": "2014-06-26 18:02:01"
         },
         {
-            "name": "mdanter/ecc",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mdanter/phpecc.git",
-                "reference": "35fd62ecc865c2db7a0fe7b4c8799c2f90ede1cb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mdanter/phpecc/zipball/35fd62ecc865c2db7a0fe7b4c8799c2f90ede1cb",
-                "reference": "35fd62ecc865c2db7a0fe7b4c8799c2f90ede1cb",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.1",
-                "squizlabs/php_codesniffer": "~1.5"
-            },
-            "suggest": {
-                "ext-bcmath": "Required if GMP is not installed.",
-                "ext-gmp": "Improves drastically ECDSA library performance"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Mdanter\\Ecc\\Tests\\": "tests/unit",
-                    "Mdanter\\Ecc\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Matyas Danter",
-                    "homepage": "http://matejdanter.com/",
-                    "role": "Author"
-                },
-                {
-                    "name": "Thibaud Fabre",
-                    "email": "thibaud@aztech.io",
-                    "homepage": "http://aztech.io",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Drak",
-                    "email": "drak@zikula.org",
-                    "homepage": "http://zikula.org",
-                    "role": "Maintainer"
-                }
-            ],
-            "description": "PHP Elliptic Curve Cryptography library",
-            "homepage": "https://github.com/mdanter/phpecc",
-            "time": "2014-10-14 15:45:20"
-        },
-        {
             "name": "monolog/monolog",
             "version": "1.11.0",
             "source": {
