@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3e3d73f3c0335ae0991c6c019a1a7a57",
+    "hash": "4e405aee8165e02c915ca3e8a9e5878a",
     "packages": [
         {
             "name": "bitwasp/bitcoin-lib",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Bit-Wasp/bitcoin-lib-php.git",
-                "reference": "ccb49d8dea2247dfee8b76f04b461620cf63850b"
+                "reference": "10f05803da952551baca32d9f8c61e5f4e0bd5c8"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/Bit-Wasp/bitcoin-lib-php/zipball/1f5e63ccd48589d7dd020419bde2faac30959446",
-                "reference": "ccb49d8dea2247dfee8b76f04b461620cf63850b",
+                "reference": "10f05803da952551baca32d9f8c61e5f4e0bd5c8",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +48,7 @@
                 "source": "https://github.com/Bit-Wasp/bitcoin-lib-php/tree/master",
                 "issues": "https://github.com/Bit-Wasp/bitcoin-lib-php/issues"
             },
-            "time": "2014-09-19 17:19:18"
+            "time": "2014-09-28 01:02:00"
         },
         {
             "name": "deweller/cliopts",
